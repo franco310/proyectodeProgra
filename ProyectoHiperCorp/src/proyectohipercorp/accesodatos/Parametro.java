@@ -1,5 +1,5 @@
 
-package proyectohipercorp;
+package proyectohipercorp.accesodatos;
 
 public class Parametro {
     private int posicion;

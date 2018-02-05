@@ -1,5 +1,5 @@
 
-package proyectohipercorp;
+package proyectohipercorp.accesodatos;
 import java.sql.*;
 import java.util.List;
 public class Conexion {
