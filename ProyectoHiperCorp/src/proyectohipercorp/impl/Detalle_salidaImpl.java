@@ -5,7 +5,6 @@
  */
 package proyectohipercorp.impl;
 import com.sun.javafx.scene.control.skin.VirtualFlow;
-
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
