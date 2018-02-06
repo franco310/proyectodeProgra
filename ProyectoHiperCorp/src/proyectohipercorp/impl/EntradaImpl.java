@@ -57,7 +57,7 @@ public class EntradaImpl implements IEntrada{
     public int modificar(Entrada entrada) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "UPDATE entrada"
-                + "   SET Identrada=?, proveedor=?,usuario =?,factura=?,  fecha_entrada=? "
+                + "   SET Identrada=?, idProveedor=?,idUsuario =?,idFactura=?,  fecha_entrada=? "
                 + " where Identrada=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, entrada.getIdEntrada()));
@@ -105,7 +105,7 @@ public class EntradaImpl implements IEntrada{
     public Entrada obtener(int IdProvedor) throws Exception {
         Entrada entrada = null;
         String sql = "UPDATE entrada"
-                + "   SET Identrada=?, proveedor=?,usuario =?,factura=?,  fecha_entrada=? "
+                + "   SET Identrada=?,  idProveedor=?,idUsuario =?,idFactura=?,  fecha_entrada=? "
                 + " where Identrada=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, IdProvedor));
