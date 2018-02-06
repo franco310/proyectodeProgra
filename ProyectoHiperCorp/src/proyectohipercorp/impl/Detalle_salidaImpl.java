@@ -15,7 +15,7 @@ import proyectohipercorp.accesodatos.Conexion;
 import proyectohipercorp.accesodatos.Parametro;
 
 /**
- *
+ *ehr
  * @author Segovia
  */
 public class Detalle_salidaImpl implements IDetalle_salida{
