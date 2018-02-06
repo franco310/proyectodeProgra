@@ -114,10 +114,35 @@ public class FrmMenuPrincipal extends JFrame {
         mnArticulos.add(mniBuscaArticulo);
         mnArticulos.add(mniListaArticulo);
         
-        
+        //Clientes
+        mnClientes= new JMenu("Clientes");
+        mniNuevoCliente= new JMenuItem("Nuevo");
+        mniNuevoCliente.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniNuevoClienteActionPerformed(e);
+            }
+        });
+        mniModificaCliente= new JMenuItem("Modifica");
+        mniEliminaCliente= new JMenuItem("Elimina");
+        mniBuscaCliente= new JMenuItem("Busca");
+        mniListaCliente= new JMenuItem("Lista"); 
+         mniListaCliente.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniListaClienteActionPerformed(e);
+            }
+        });
+        mnClientes.add(mniNuevoCliente);
+        mnClientes.add(mniModificaCliente);
+        mnClientes.add(mniEliminaCliente);
+        mnClientes.addSeparator();
+        mnClientes.add(mniBuscaCliente);
+        mnClientes.add(mniListaCliente);
         
         mnbPrincipal.add(mnInicio);
         mnbPrincipal.add(mnArticulos);
+         mnbPrincipal.add(mnClientes);
         mnInicio.add(mniLogin);
         mnInicio.add(mniSalir);
         
@@ -130,7 +155,18 @@ public class FrmMenuPrincipal extends JFrame {
         SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.FindingNemoSkin");
     } //Fin public FrmMenuPrincipal
     
-    
+       //Cliente
+     public void mniNuevoClienteActionPerformed(ActionEvent e){
+        FrmNuevoCliente frm = new FrmNuevoCliente();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+     public void mniListaClienteActionPerformed(ActionEvent e){
+        FrmListaCliente frm = new FrmListaCliente();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+    //Articulo
     public void mniNuevoArticuloActionPerformed(ActionEvent e){
         FrmNuevoArticulo frm = new FrmNuevoArticulo();
         dkpEscritorio.add(frm);
