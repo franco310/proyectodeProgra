@@ -135,6 +135,12 @@ public class FrmMenuPrincipal extends JFrame {
                 mniListaClienteActionPerformed(e);
             }
         });
+        mnClientes.add(mniNuevoCliente);
+        mnClientes.add(mniModificaCliente);
+        mnClientes.add(mniEliminaCliente);
+        mnClientes.addSeparator();
+        mnClientes.add(mniBuscaCliente);
+        mnClientes.add(mniListaCliente);
          
          //Proveedor
         mnProveedor= new JMenu("Proveedor");
