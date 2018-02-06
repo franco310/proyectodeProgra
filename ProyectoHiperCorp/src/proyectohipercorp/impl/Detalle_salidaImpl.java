@@ -4,19 +4,18 @@
  * and open the template in the editor.
  */
 package proyectohipercorp.impl;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import proyectohipercorp.dao.IDetalle_salida;
+//import proyectohipercorp.dao.IDetalle_salida;
 import proyectohipercorp.entidades.Detalle_salida;
 import proyectohipercorp.accesodatos.Conexion;
 import proyectohipercorp.accesodatos.Parametro;
+import proyectohipercorp.dao.IArticulo;
+import proyectohipercorp.entidades.Articulo;
+import proyectohipercorp.dao.*;
+import proyectohipercorp.entidades.Salida;
 
-/**
- *ehr
- * @author Segovia
- */
 public class Detalle_salidaImpl implements IDetalle_salida{
    
     @Override
@@ -24,8 +23,8 @@ public class Detalle_salidaImpl implements IDetalle_salida{
         int numFilasAfectadas = 0;
         String sql = "insert into detalle_salida values(?,?,?)";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, detalle_salida.getIdSalida()));
-        lstPar.add(new Parametro(2, detalle_salida.getIdArticulo()));
+        lstPar.add(new Parametro(1, detalle_salida.getSalida().getIdSalida()));
+        lstPar.add(new Parametro(2, detalle_salida.getArticulo().getIdArticulo()));
        lstPar.add(new Parametro(3, detalle_salida.getCantidad()));
         Conexion con = null;
         try {
@@ -45,8 +44,8 @@ public class Detalle_salidaImpl implements IDetalle_salida{
         int numFilasAfectadas = 0;
         String sql = "update  detalle_salida set idSalida=?,IdArticulo=?,cantidad=?, where getIdSalida=?";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, detalle_salida.getIdSalida()));
-        lstPar.add(new Parametro(2, detalle_salida.getIdArticulo()));
+        lstPar.add(new Parametro(1, detalle_salida.getSalida().getIdSalida()));
+        lstPar.add(new Parametro(2, detalle_salida.getArticulo().getIdArticulo()));
        lstPar.add(new Parametro(3, detalle_salida.getCantidad()));
         Conexion con = null;
         try {
@@ -80,9 +79,14 @@ public class Detalle_salidaImpl implements IDetalle_salida{
             ResultSet rst = con.ejecutaQuery(sql, lstPar);            
             while(rst.next()){
                 detalle_salida= new Detalle_salida();
-                detalle_salida.setIdSalida(rst.getInt(1));
-                detalle_salida.setIdArticulo(rst.getInt(2));  
-               detalle_salida.setCantidad(rst.getInt(3));
+                ISalida salidao = new SalidaImpl();
+                Salida  salida =salidao.obtener(rst.getInt(1));
+                detalle_salida.setSalida(salida);
+                
+                IArticulo artidao = new ArticuloImpl();
+                Articulo articulo = artidao.obtener(rst.getInt(2));
+                detalle_salida.setArticulo(articulo);  
+                detalle_salida.setCantidad(rst.getInt(3));
             }
         } catch (Exception e) {
             throw e;
@@ -103,9 +107,14 @@ public class Detalle_salidaImpl implements IDetalle_salida{
             ResultSet rst = con.ejecutaQuery(sql, null);
             Detalle_salida detalle_salida= null;
             while(rst.next()){
+                
                 detalle_salida= new Detalle_salida();
-                detalle_salida.setIdSalida(rst.getInt(1));
-                detalle_salida.setIdArticulo(rst.getInt(2));
+                ISalida salidao = new SalidaImpl();
+                Salida  salida =salidao.obtener(rst.getInt(1));
+                detalle_salida.setSalida(salida);
+                IArticulo artidao = new ArticuloImpl();
+                Articulo articulo = artidao.obtener(rst.getInt(2));
+                detalle_salida.setArticulo(articulo);
                 detalle_salida.setCantidad(rst.getInt(3));
                 lista.add(detalle_salida);
             }
