@@ -105,7 +105,7 @@ public class ProveedorImpl implements IProveedor{
             while (rst.next()) {
                 proveedor = new Proveedor();
                 proveedor.setIdProveedor(rst.getInt(1));
-                proveedor.setRuc(rst.getInt(2));
+                proveedor.setRuc(rst.getString(2));
                 proveedor.setNombre(rst.getString(3));
                 proveedor.setApellido(rst.getString(4));
                 proveedor.setDireccion(rst.getString(5));   
@@ -133,7 +133,7 @@ public class ProveedorImpl implements IProveedor{
             while (rst.next()) {
                 proveedor = new Proveedor();
                 proveedor.setIdProveedor(rst.getInt(1));
-                proveedor.setRuc(rst.getInt(2));
+                proveedor.setRuc(rst.getString(2));
                 proveedor.setNombre(rst.getString(3));
                 proveedor.setApellido(rst.getString(4));
                 proveedor.setDireccion(rst.getString(5));
