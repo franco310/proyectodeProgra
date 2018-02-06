@@ -65,7 +65,7 @@ public class ArticuloImpl implements IArticulo {
     @Override
     public int eliminar(Articulo articulo) throws Exception {
         int numFilasAfectadas = 0;
-         String sql = "DELETE FROM estudiante  where codigo=?";
+         String sql = "DELETE FROM estudiante  where idArticulo=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, articulo.getIdArticulo()));       
         Conexion con = null;
@@ -84,12 +84,12 @@ public class ArticuloImpl implements IArticulo {
     }
 
     @Override
-    public Articulo obtener(int codigo) throws Exception {
+    public Articulo obtener(int idArticulo) throws Exception {
         Articulo articulo = null;
         String sql = "SELECT idArticulo, nombre, cantidad, estado, observacio, "
-                + " FROM articulo where idArticulo=?;";
+                + " FROM articulo where idArticulo=?";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, codigo));
+        lstPar.add(new Parametro(1, idArticulo));
         Conexion con = null;
         try {
             con = new Conexion();
