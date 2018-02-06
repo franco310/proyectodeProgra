@@ -14,13 +14,12 @@ public class Usuario {
     private String nombre;
     private String apellido;
     private String direccion;
-     private int telefono;
+     private String telefono;
 
     public Usuario() {
-        
     }
 
-    public Usuario(int idUsuario, String nombre, String apellido, String direccion, int telefono) {
+    public Usuario(int idUsuario, String nombre, String apellido, String direccion, String telefono) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -60,16 +59,12 @@ public class Usuario {
         this.direccion = direccion;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
      
-     
-    
-    
-    
 }
