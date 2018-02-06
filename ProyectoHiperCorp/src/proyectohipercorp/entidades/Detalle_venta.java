@@ -5,37 +5,37 @@ import java.sql.Date;
 
 public class Detalle_venta {
     
- private int idVenta;
-    private int idArticulo;
+ private Venta venta;
+    private Articulo articulo;
     private int  cantidad;   
-     private Date fecha_anulacion;
-     private int monto;
+    private Date fecha_anulacion;
+    private int monto;
 
     public Detalle_venta() {
     }
 
-    public Detalle_venta(int idVenta, int idArticulo, int cantidad, Date fecha_anulacion, int monto) {
-        this.idVenta = idVenta;
-        this.idArticulo = idArticulo;
+    public Detalle_venta(Venta venta, Articulo articulo, int cantidad, Date fecha_anulacion, int monto) {
+        this.venta = venta;
+        this.articulo = articulo;
         this.cantidad = cantidad;
         this.fecha_anulacion = fecha_anulacion;
         this.monto = monto;
     }
 
-    public int getIdVenta() {
-        return idVenta;
+    public Venta getVenta() {
+        return venta;
     }
 
-    public void setIdVenta(int idVenta) {
-        this.idVenta = idVenta;
+    public void setVenta(Venta venta) {
+        this.venta = venta;
     }
 
-    public int getIdArticulo() {
-        return idArticulo;
+    public Articulo getArticulo() {
+        return articulo;
     }
 
-    public void setIdArticulo(int idArticulo) {
-        this.idArticulo = idArticulo;
+    public void setArticulo(Articulo articulo) {
+        this.articulo = articulo;
     }
 
     public int getCantidad() {
@@ -60,8 +60,5 @@ public class Detalle_venta {
 
     public void setMonto(int monto) {
         this.monto = monto;
-    }
-
-    
-     
+    }    
 }

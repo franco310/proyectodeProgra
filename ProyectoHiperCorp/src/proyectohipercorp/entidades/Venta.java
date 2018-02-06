@@ -7,10 +7,6 @@ package proyectohipercorp.entidades;
 
 import java.sql.Date;
 
-/**
- *
- * @author diego
- */
 public class Venta {
     private int idVenta;
     private Date fecha_emision;
@@ -29,5 +25,44 @@ public class Venta {
         this.usuario = usuario;
     }
 
-    
+    public int getIdVenta() {
+        return idVenta;
+    }
+
+    public void setIdVenta(int idVenta) {
+        this.idVenta = idVenta;
+    }
+
+    public Date getFecha_emision() {
+        return fecha_emision;
+    }
+
+    public void setFecha_emision(Date fecha_emision) {
+        this.fecha_emision = fecha_emision;
+    }
+
+    public Date getFecha_anulacion() {
+        return fecha_anulacion;
+    }
+
+    public void setFecha_anulacion(Date fecha_anulacion) {
+        this.fecha_anulacion = fecha_anulacion;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
 }

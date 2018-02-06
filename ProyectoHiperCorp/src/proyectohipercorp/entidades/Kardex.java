@@ -8,23 +8,23 @@ public class Kardex {
     private int  stok_anterior;
     private int  stock_actual;
     private int  cantidad;
-    private int idArticulo;
-    private int idEntrada;
-    private int idSalida;
+    private Articulo articulo;
+    private Entrada entrada;
+    private Salida salida;
 
-    public Kardex() {
-    }
-
-    public Kardex(int idKardex, int precio_compra, int precio_venta, int stok_anterior, int stock_actual, int cantidad, int idArticulo, int idEntrada, int idSalida) {
+    public Kardex(int idKardex, int precio_compra, int precio_venta, int stok_anterior, int stock_actual, int cantidad, Articulo articulo, Entrada entrada, Salida salida) {
         this.idKardex = idKardex;
         this.precio_compra = precio_compra;
         this.precio_venta = precio_venta;
         this.stok_anterior = stok_anterior;
         this.stock_actual = stock_actual;
         this.cantidad = cantidad;
-        this.idArticulo = idArticulo;
-        this.idEntrada = idEntrada;
-        this.idSalida = idSalida;
+        this.articulo = articulo;
+        this.entrada = entrada;
+        this.salida = salida;
+    }
+
+    public Kardex() {
     }
 
     public int getIdKardex() {
@@ -75,29 +75,27 @@ public class Kardex {
         this.cantidad = cantidad;
     }
 
-    public int getIdArticulo() {
-        return idArticulo;
+    public Articulo getArticulo() {
+        return articulo;
     }
 
-    public void setIdArticulo(int idArticulo) {
-        this.idArticulo = idArticulo;
+    public void setArticulo(Articulo articulo) {
+        this.articulo = articulo;
     }
 
-    public int getIdEntrada() {
-        return idEntrada;
+    public Entrada getEntrada() {
+        return entrada;
     }
 
-    public void setIdEntrada(int idEntrada) {
-        this.idEntrada = idEntrada;
+    public void setEntrada(Entrada entrada) {
+        this.entrada = entrada;
     }
 
-    public int getIdSalida() {
-        return idSalida;
+    public Salida getSalida() {
+        return salida;
     }
 
-    public void setIdSalida(int idSalida) {
-        this.idSalida = idSalida;
+    public void setSalida(Salida salida) {
+        this.salida = salida;
     }
-    
-    
 }

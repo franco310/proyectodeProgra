@@ -5,17 +5,17 @@ import java.sql.Date;
 
 public class Entrada {
     private int idEntrada;
-    private int idProveedor;
-    private String usuario;  
-    private String factura; 
+    private Proveedor proveedor;
+    private Usuario usuario;  
+    private Factura factura; 
      private Date fecha_entrada;
 
     public Entrada() {
     }
 
-    public Entrada(int idEntrada, int idProveedor, String usuario, String factura, Date fecha_entrada) {
+    public Entrada(int idEntrada, Proveedor proveedor, Usuario usuario, Factura factura, Date fecha_entrada) {
         this.idEntrada = idEntrada;
-        this.idProveedor = idProveedor;
+        this.proveedor = proveedor;
         this.usuario = usuario;
         this.factura = factura;
         this.fecha_entrada = fecha_entrada;
@@ -29,27 +29,27 @@ public class Entrada {
         this.idEntrada = idEntrada;
     }
 
-    public int getIdProveedor() {
-        return idProveedor;
+    public Proveedor getProveedor() {
+        return proveedor;
     }
 
-    public void setIdProveedor(int idProveedor) {
-        this.idProveedor = idProveedor;
+    public void setProvedor(Proveedor provedor) {
+        this.proveedor = provedor;
     }
 
-    public String getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(String usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
-    public String getFactura() {
+    public Factura getFactura() {
         return factura;
     }
 
-    public void setFactura(String factura) {
+    public void setFactura(Factura factura) {
         this.factura = factura;
     }
 
@@ -60,5 +60,5 @@ public class Entrada {
     public void setFecha_entrada(Date fecha_entrada) {
         this.fecha_entrada = fecha_entrada;
     }
-    
+       
 }

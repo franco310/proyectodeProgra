@@ -2,33 +2,33 @@
 package proyectohipercorp.entidades;
 
 public class Detalle_salida {
-    private int idSalida;
-    private int idArticulo;
+    private Salida salida;
+    private Articulo articulo;
     private int  cantidad;
 
     public Detalle_salida() {
     }
 
-    public Detalle_salida(int idSalida, int idArticulo, int cantidad) {
-        this.idSalida = idSalida;
-        this.idArticulo = idArticulo;
+    public Detalle_salida(Salida salida, Articulo articulo, int cantidad) {
+        this.salida = salida;
+        this.articulo = articulo;
         this.cantidad = cantidad;
     }
 
-    public int getIdSalida() {
-        return idSalida;
+    public Salida getSalida() {
+        return salida;
     }
 
-    public void setIdSalida(int idSalida) {
-        this.idSalida = idSalida;
+    public void setSalida(Salida salida) {
+        this.salida = salida;
     }
 
-    public int getIdArticulo() {
-        return idArticulo;
+    public Articulo getArticulo() {
+        return articulo;
     }
 
-    public void setIdArticulo(int idArticulo) {
-        this.idArticulo = idArticulo;
+    public void setArticulo(Articulo articulo) {
+        this.articulo = articulo;
     }
 
     public int getCantidad() {
@@ -37,7 +37,5 @@ public class Detalle_salida {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
-    }
-      
-    
+    }  
 }
