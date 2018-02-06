@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 import java.util.*;
 import proyectohipercorp.dao.*;
 import proyectohipercorp.entidades.*;
-
+import proyectohipercorp.impl.*;
 public class ArticuloTest {
 
     public ArticuloTest() {
