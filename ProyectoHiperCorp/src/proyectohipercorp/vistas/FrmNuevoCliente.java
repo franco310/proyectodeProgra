@@ -1,6 +1,4 @@
-
 package proyectohipercorp.vistas;
-
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -12,30 +10,26 @@ import proyectohipercorp.entidades.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-
-public class FrmNuevoArticulo extends JInternalFrame{
-    
+public class FrmNuevoCliente extends JInternalFrame {
     JLabel lblTitulo0;
-    JLabel lblidArticulo;
+    JLabel lblidCliente;
     JLabel lblnombre;
-    JLabel lblcantidad;
-    JLabel lblestado;
-    JLabel lblobservacio;
+    JLabel lblapellido;
+    JLabel lbldireccion;
+    JLabel lbltelefono;
     
-    
-    JTextField txtidArticulo;
+    JTextField txtidCliente;
     JTextField txtnombre;
-    JTextField txtcantidad;
-    JTextField txtestado;
-    JTextField txtobservacio;
+    JTextField txtapellido;
+    JTextField txtdireccion;
+    JTextField txttelefono;
     
- 
     JButton btnLimpiar;
     JButton btnAceptar;
-    
     JPanel pnlCentral;
     JPanel pnlPie;
-    public FrmNuevoArticulo() {
+    
+     public FrmNuevoCliente() {
         this.setSize(300, 300);
         this.setLayout(new BorderLayout());
         this.setClosable(true);
@@ -44,35 +38,35 @@ public class FrmNuevoArticulo extends JInternalFrame{
         pnlCentral.setLayout(new GridLayout(10, 2, 5, 5));
         pnlPie.setLayout(new GridLayout(1,2,5,5));
         
-        lblTitulo0 = new JLabel("Datos Articulo");
+        lblTitulo0 = new JLabel("Datos del Cliente");
         
-        lblidArticulo= new JLabel("id Articulo:");
+        lblidCliente= new JLabel("id Cliente:");
         lblnombre= new JLabel("Nombre:");
-        lblcantidad= new JLabel("Cantidad:");
-        lblestado= new JLabel("Estado:");
-        lblobservacio= new JLabel("Observacion:");
-       
+        lblapellido= new JLabel("Apelldio:");
+        lbldireccion= new JLabel("Direccion:");
+        lbltelefono= new JLabel("Telefono:");
+        
 
-        txtidArticulo = new JTextField(2);
+        txtidCliente = new JTextField(2);
         txtnombre= new JTextField(2);
-        txtcantidad= new JTextField(2);
-        txtestado= new JTextField(2);
-        txtobservacio= new JTextField(2);
+        txtapellido= new JTextField(2);
+        txtdireccion= new JTextField(2);
+        txttelefono= new JTextField(2);
         
         btnLimpiar= new JButton("Limpiar");
         btnAceptar= new JButton("Aceptar");
         
-        pnlCentral.add(lblidArticulo);
-        pnlCentral.add(txtidArticulo);
+        pnlCentral.add(lblidCliente);
+        pnlCentral.add(txtidCliente);
         pnlCentral.add(lblnombre);
         pnlCentral.add(txtnombre);
-        pnlCentral.add(lblcantidad);
-        pnlCentral.add(txtcantidad);
-        pnlCentral.add(lblestado);
-        pnlCentral.add(txtestado);
-        pnlCentral.add(lblobservacio);
-        pnlCentral.add(txtobservacio);
-              
+        pnlCentral.add(lblapellido);
+        pnlCentral.add(txtapellido);
+        pnlCentral.add(lbldireccion);
+        pnlCentral.add(txtdireccion);
+        pnlCentral.add(lbltelefono);
+        pnlCentral.add(txttelefono);
+               
         btnAceptar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -86,28 +80,27 @@ public class FrmNuevoArticulo extends JInternalFrame{
         
         pnlPie.add(btnLimpiar);
         pnlPie.add(btnAceptar);
-        
         this.add(lblTitulo0, BorderLayout.NORTH);
         this.add(pnlCentral, BorderLayout.CENTER);
         this.add(pnlPie, BorderLayout.SOUTH);        
     }
     public static void main(String[] args) {
-        FrmNuevoArticulo frmMenu= new FrmNuevoArticulo();
+        FrmNuevoCliente frmMenu= new FrmNuevoCliente();
         frmMenu.setVisible(true);
     } 
     
     public void btnAceptarActionListener(ActionEvent e){
-        IArticulo articuloDao = new ArticuloImpl();
-        Articulo articulo = new Articulo();
-        articulo.setIdArticulo(Integer.parseInt(txtidArticulo.getText()));
-        articulo.setNombre(txtnombre.getText());
-        articulo.setCantidad(Integer.parseInt(txtcantidad.getText()));
-        articulo.setEstado(txtestado.getText());
-        articulo.setObservacio(txtobservacio.getText());
-     
+        ICliente clienteDao = new ClienteImpl();
+        Cliente cliente = new Cliente();
+        cliente.setIdCliente(Integer.parseInt(txtidCliente.getText()));
+        cliente.setNombre(txtnombre.getText());
+        cliente.setApellido(txtapellido.getText());
+        cliente.setDireccion(txtdireccion.getText());
+        cliente.setTelefono(txttelefono.getText());
+        
         
         try {
-            if(articuloDao.insertar(articulo)>0){
+            if(clienteDao.insertar(cliente)>0){
                 JOptionPane.showMessageDialog(this,"Guaradado correctamente!!",
                 "Transacción", JOptionPane.INFORMATION_MESSAGE);
             }else{
