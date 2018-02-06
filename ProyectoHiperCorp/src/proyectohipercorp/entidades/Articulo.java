@@ -1,28 +1,30 @@
 package proyectohipercorp.entidades;
 public class Articulo {
-    private int idProveedor;
+    private int idArticulo;
     private String nombre;
-    private String apellido;
-    private String direccion;
-    private int ruc;
+    private int cantidad;
+    private String estado;
+    private String observacio;
 
     public Articulo() {
     }
 
-    public Articulo(int idProveedor, String nombre, String apellido, String direccion, int ruc) {
-        this.idProveedor = idProveedor;
+    public Articulo(int idArticulo, String nombre, int cantidad, String estado, String observacio) {
+        this.idArticulo = idArticulo;
         this.nombre = nombre;
-        this.apellido = apellido;
-        this.direccion = direccion;
-        this.ruc = ruc;
+        this.cantidad = cantidad;
+        this.estado = estado;
+        this.observacio = observacio;
     }
 
-    public int getIdProveedor() {
-        return idProveedor;
+  
+
+    public int getIdArticulo() {
+        return idArticulo;
     }
 
-    public void setIdProveedor(int idProveedor) {
-        this.idProveedor = idProveedor;
+    public void setIdArticulo(int idArticulo) {
+        this.idArticulo = idArticulo;
     }
 
     public String getNombre() {
@@ -33,27 +35,32 @@ public class Articulo {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public int getCantidad() {
+        return cantidad;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
-    public int getRuc() {
-        return ruc;
+    public String getObservacio() {
+        return observacio;
     }
 
-    public void setRuc(int ruc) {
-        this.ruc = ruc;
+    public void setObservacio(String observacio) {
+        this.observacio = observacio;
+    }
+
+   @Override
+    public String toString() {
+        return nombre; 
     }
 }
