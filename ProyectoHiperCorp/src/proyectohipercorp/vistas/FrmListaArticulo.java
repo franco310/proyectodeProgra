@@ -11,7 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import sun.awt.DefaultMouseInfoPeer;
 
 public class FrmListaArticulo extends JInternalFrame {
     JLabel lblTitulo;
@@ -26,8 +25,7 @@ public class FrmListaArticulo extends JInternalFrame {
         tabla = new JTable();
         this.add(lblTitulo, BorderLayout.NORTH);
         this.add(tabla, BorderLayout.CENTER);
-        cargarTabla();
-        
+        cargarTabla(); 
     }
     public void cargarTabla(){
         modelo = new  DefaultTableModel();

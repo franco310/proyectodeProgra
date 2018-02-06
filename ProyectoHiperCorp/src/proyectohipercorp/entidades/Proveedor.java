@@ -30,6 +30,7 @@ public class Proveedor {
 
     public int getRuc() {
         return ruc;
+        
     }
 
     public void setRuc(int ruc) {

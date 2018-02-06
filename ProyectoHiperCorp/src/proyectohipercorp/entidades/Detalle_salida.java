@@ -15,6 +15,7 @@ public class Detalle_salida {
         this.cantidad = cantidad;
     }
 
+    
     public Salida getSalida() {
         return salida;
     }

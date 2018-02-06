@@ -17,6 +17,7 @@ public class Usuario {
      private int telefono;
 
     public Usuario() {
+        
     }
 
     public Usuario(int idUsuario, String nombre, String apellido, String direccion, int telefono) {

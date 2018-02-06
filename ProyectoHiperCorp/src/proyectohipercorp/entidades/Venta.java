@@ -15,6 +15,7 @@ public class Venta {
     private Usuario usuario;
 
     public Venta() {
+        
     }
 
     public Venta(int idVenta, Date fecha_emision, Date fecha_anulacion, Cliente cliente, Usuario usuario) {

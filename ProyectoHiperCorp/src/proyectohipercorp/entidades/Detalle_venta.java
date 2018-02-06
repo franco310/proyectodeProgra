@@ -20,6 +20,7 @@ public class Detalle_venta {
         this.cantidad = cantidad;
         this.fecha_anulacion = fecha_anulacion;
         this.monto = monto;
+        
     }
 
     public Venta getVenta() {

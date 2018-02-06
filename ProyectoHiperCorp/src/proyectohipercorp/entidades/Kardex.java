@@ -22,6 +22,7 @@ public class Kardex {
         this.articulo = articulo;
         this.entrada = entrada;
         this.salida = salida;
+        
     }
 
     public Kardex() {

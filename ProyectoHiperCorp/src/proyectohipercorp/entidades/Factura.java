@@ -21,6 +21,7 @@ public class Factura {
       private int precio;
 
     public Factura() {
+        
     }
 
     public Factura(int idFactura, Date fecha, String nombreCliente, String nombreArticulo, int cantidad, int precio) {

@@ -30,6 +30,7 @@ public class Salida {
     public int getIdSalida() {
         return idSalida;
     }
+    
 
     public void setIdSalida(int idSalida) {
         this.idSalida = idSalida;

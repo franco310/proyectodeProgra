@@ -19,6 +19,7 @@ public class Entrada {
         this.usuario = usuario;
         this.factura = factura;
         this.fecha_entrada = fecha_entrada;
+        
     }
 
     public int getIdEntrada() {

@@ -15,6 +15,7 @@ public class Articulo {
         this.cantidad = cantidad;
         this.estado = estado;
         this.observacio = observacio;
+        
     }
 
   
