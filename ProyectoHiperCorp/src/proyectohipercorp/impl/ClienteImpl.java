@@ -1,22 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyectohipercorp.impl;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
+
 import proyectohipercorp.accesodatos.Conexion;
 import proyectohipercorp.accesodatos.Parametro;
 import proyectohipercorp.dao.ICliente;
 import proyectohipercorp.entidades.Cliente;
-
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 public class ClienteImpl implements ICliente{
+    
     @Override
     public int insertar(Cliente cliente) throws Exception{
         int numFilasAfectadas=0;
-          String sql = "insert into cliente values(?,?,?,?,?)";
+          String sql = "insert into cliente values"
+                  + "(?,?,?,?,?)";
           List<Parametro> lstPar = new ArrayList<>();
           lstPar.add(new Parametro(1, cliente.getIdCliente()));
           lstPar.add(new Parametro(2, cliente.getNombre()));
@@ -41,8 +38,7 @@ public class ClienteImpl implements ICliente{
     public int modificar(Cliente cliente) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "UPDATE cliente"
-                + "   SET IdCliente=?,nombre=?, apellidos=?, "
-                + " direccion=?, telefono=? "
+                + "   SET IdCliente=?,nombre=?, apellido=?,  direccion=?, telefono=? "
                 + " where IdCliente=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, cliente.getIdCliente()));
@@ -87,12 +83,12 @@ public class ClienteImpl implements ICliente{
     }
 
     @Override
-    public Cliente obtener(int codigo) throws Exception {
+    public Cliente obtener(int idCliente) throws Exception {
         Cliente cliente = null;
-        String sql = "SELECT IdCliente, nombre , apellidos "
-                + " direccion, telefono  FROM cliente where IdCliente=?";
+        String sql = "SELECT IdCliente, nombre , apellido ,direccion,"
+                + " telefono  FROM cliente where IdCliente=?";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, codigo));
+        lstPar.add(new Parametro(1, idCliente));
         Conexion con = null;
         try {
             con = new Conexion();
@@ -118,8 +114,8 @@ public class ClienteImpl implements ICliente{
     @Override
     public List<Cliente> obtener() throws Exception {
         List<Cliente> lista = new ArrayList<>();
-         String sql = "SELECT IdCliente, nombre , apellidos "
-                +" direccion, telefono  FROM cliente where IdCliente=?" ;       
+         String sql = "SELECT IdCliente, nombre , apellido, direccion,"
+                 + " telefono  FROM cliente ";       
         Conexion con = null;
         try {
             con = new Conexion();
