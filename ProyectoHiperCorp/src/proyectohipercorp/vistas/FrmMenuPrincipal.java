@@ -31,6 +31,14 @@ public class FrmMenuPrincipal extends JFrame {
     JMenuItem mniBuscaCliente;
     JMenuItem mniListaCliente;
     
+     //Proveedor
+    JMenu mnProveedor;
+    JMenuItem mniNuevoProveedor;
+    JMenuItem mniModificaProveedor;
+    JMenuItem mniEliminaProveedor;
+    JMenuItem mniBuscaProveedor;
+    JMenuItem mniListaProveedor;
+    
     //Detalle_Salida
     JMenu mnDetalle_Salida;
     JMenuItem mniNuevoDetalle_Salida;
@@ -63,13 +71,7 @@ public class FrmMenuPrincipal extends JFrame {
     JMenuItem mniBuscaKardex;
     JMenuItem mniListaKardex;
     
-    //Proveedor
-    JMenu mnProveedor;
-    JMenuItem mniNuevoProveedor;
-    JMenuItem mniModificaProveedor;
-    JMenuItem mniEliminaProveedor;
-    JMenuItem mniBuscaProveedor;
-    JMenuItem mniListaProveedor;
+   
     
     JDesktopPane dkpEscritorio;
     
@@ -133,16 +135,37 @@ public class FrmMenuPrincipal extends JFrame {
                 mniListaClienteActionPerformed(e);
             }
         });
-        mnClientes.add(mniNuevoCliente);
-        mnClientes.add(mniModificaCliente);
-        mnClientes.add(mniEliminaCliente);
-        mnClientes.addSeparator();
-        mnClientes.add(mniBuscaCliente);
-        mnClientes.add(mniListaCliente);
+         
+         //Proveedor
+        mnProveedor= new JMenu("Proveedor");
+        mniNuevoProveedor= new JMenuItem("Nuevo");
+        mniNuevoProveedor.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniNuevoProveedorActionPerformed(e);
+            }
+        });
+        mniModificaProveedor = new JMenuItem("Modifica");
+        mniEliminaProveedor = new JMenuItem("Elimina");
+        mniBuscaProveedor = new JMenuItem("Busca");
+        mniListaProveedor = new JMenuItem("Lista"); 
+         mniListaProveedor.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniListaProveedorActionPerformed(e);
+            }
+        });
+        mnProveedor.add(mniNuevoProveedor);
+        mnProveedor.add(mniModificaProveedor);
+        mnProveedor.add(mniEliminaProveedor);
+        mnProveedor.addSeparator();
+        mnProveedor.add(mniBuscaProveedor);
+        mnProveedor.add(mniListaProveedor);
         
         mnbPrincipal.add(mnInicio);
         mnbPrincipal.add(mnArticulos);
-         mnbPrincipal.add(mnClientes);
+        mnbPrincipal.add(mnClientes);
+        mnbPrincipal.add(mnProveedor);
         mnInicio.add(mniLogin);
         mnInicio.add(mniSalir);
         
@@ -154,6 +177,18 @@ public class FrmMenuPrincipal extends JFrame {
         JFrame.setDefaultLookAndFeelDecorated(true); //que nos permite dejar a Substance la decoracion ( por asi decirlo) 
         SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.FindingNemoSkin");
     } //Fin public FrmMenuPrincipal
+    
+    //Proveedor
+    public void mniNuevoProveedorActionPerformed(ActionEvent e){
+        FrmNuevoProveedor frm = new FrmNuevoProveedor();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+     public void mniListaProveedorActionPerformed(ActionEvent e){
+        FrmListaProveedor frm = new FrmListaProveedor();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
     
        //Cliente
      public void mniNuevoClienteActionPerformed(ActionEvent e){

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package proyectohipercorp.impl;
 
 import java.sql.ResultSet;
@@ -93,8 +89,8 @@ public class ProveedorImpl implements IProveedor{
     @Override
     public Proveedor obtener(int IdProvedor) throws Exception {
         Proveedor proveedor = null;
-        String sql = "SELECT IdProveedor, ruc, nombre , apellidos,  "
-                + " direccion, FROM proveedor where IdProveedor=?";
+        String sql = "SELECT IdProveedor, ruc, nombre , apellido, direccion,"
+                + " FROM proveedor where IdProveedor=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, IdProvedor));
         Conexion con = null;
@@ -105,7 +101,7 @@ public class ProveedorImpl implements IProveedor{
             while (rst.next()) {
                 proveedor = new Proveedor();
                 proveedor.setIdProveedor(rst.getInt(1));
-                proveedor.setRuc(rst.getInt(2));
+                proveedor.setRuc(rst.getString(2));
                 proveedor.setNombre(rst.getString(3));
                 proveedor.setApellido(rst.getString(4));
                 proveedor.setDireccion(rst.getString(5));   
@@ -122,8 +118,8 @@ public class ProveedorImpl implements IProveedor{
     @Override
     public List<Proveedor> obtener() throws Exception {
         List<Proveedor> lista = new ArrayList<>();
-         String sql = "SELECT IdProveedor, ruc, nombre , apellidos "
-                + " direccion, FROM proveedor ";        
+         String sql = "SELECT IdProveedor, ruc, nombre , apellido, direccion,"
+                 + " FROM proveedor ";        
         Conexion con = null;
         try {
             con = new Conexion();
@@ -133,7 +129,7 @@ public class ProveedorImpl implements IProveedor{
             while (rst.next()) {
                 proveedor = new Proveedor();
                 proveedor.setIdProveedor(rst.getInt(1));
-                proveedor.setRuc(rst.getInt(2));
+                proveedor.setRuc(rst.getString(2));
                 proveedor.setNombre(rst.getString(3));
                 proveedor.setApellido(rst.getString(4));
                 proveedor.setDireccion(rst.getString(5));

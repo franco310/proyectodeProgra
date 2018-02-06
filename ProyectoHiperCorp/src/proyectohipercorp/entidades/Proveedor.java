@@ -4,7 +4,7 @@ package proyectohipercorp.entidades;
 
 public class Proveedor {
     private int idProveedor;
-    private int ruc; 
+    private String ruc; 
       private String nombre;
       private String apellido;
       private String direccion;
@@ -12,7 +12,7 @@ public class Proveedor {
     public Proveedor() {
     }
 
-    public Proveedor(int idProveedor, int ruc, String nombre, String apellido, String direccion) {
+    public Proveedor(int idProveedor, String ruc, String nombre, String apellido, String direccion) {
         this.idProveedor = idProveedor;
         this.ruc = ruc;
         this.nombre = nombre;
@@ -28,12 +28,11 @@ public class Proveedor {
         this.idProveedor = idProveedor;
     }
 
-    public int getRuc() {
+    public String getRuc() {
         return ruc;
-        
     }
 
-    public void setRuc(int ruc) {
+    public void setRuc(String ruc) {
         this.ruc = ruc;
     }
 
@@ -60,7 +59,8 @@ public class Proveedor {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-      
+
+    
       
       
 }
