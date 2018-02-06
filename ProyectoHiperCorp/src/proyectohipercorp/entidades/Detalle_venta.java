@@ -7,17 +7,19 @@ public class Detalle_venta {
     
  private int idVenta;
     private int idArticulo;
-    private int  monto;   
+    private int  cantidad;   
      private Date fecha_anulacion;
+     private int monto;
 
     public Detalle_venta() {
     }
 
-    public Detalle_venta(int idVenta, int idArticulo, int monto, Date fecha_anulacion) {
+    public Detalle_venta(int idVenta, int idArticulo, int cantidad, Date fecha_anulacion, int monto) {
         this.idVenta = idVenta;
         this.idArticulo = idArticulo;
-        this.monto = monto;
+        this.cantidad = cantidad;
         this.fecha_anulacion = fecha_anulacion;
+        this.monto = monto;
     }
 
     public int getIdVenta() {
@@ -36,12 +38,12 @@ public class Detalle_venta {
         this.idArticulo = idArticulo;
     }
 
-    public int getMonto() {
-        return monto;
+    public int getCantidad() {
+        return cantidad;
     }
 
-    public void setMonto(int monto) {
-        this.monto = monto;
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
     public Date getFecha_anulacion() {
@@ -51,6 +53,15 @@ public class Detalle_venta {
     public void setFecha_anulacion(Date fecha_anulacion) {
         this.fecha_anulacion = fecha_anulacion;
     }
-     
+
+    public int getMonto() {
+        return monto;
+    }
+
+    public void setMonto(int monto) {
+        this.monto = monto;
+    }
+
+    
      
 }
