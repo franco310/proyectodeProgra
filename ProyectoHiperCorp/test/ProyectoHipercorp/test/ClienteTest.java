@@ -1,4 +1,7 @@
 package ProyectoHipercorp.test;
+import proyectohipercorp.entidades.*;
+import proyectohipercorp.dao.*;
+import proyectohipercorp.impl.*;
 
 
 import org.junit.Test;
@@ -16,8 +19,7 @@ public class ClienteTest {
         int filasAfectadas = 0;
         ICliente clienteDao = new ClienteImpl();
        
-        Cliente cliente = new Cliente(
-                124, "Diego", "Curimilma","Ayacucho", 0983851377 );
+        Cliente cliente = new Cliente(124, "Diego", "Curimilma","Ayacucho", "0983851377" );
         try {
             filasAfectadas = clienteDao.insertar(cliente);
         } catch (Exception e) {
