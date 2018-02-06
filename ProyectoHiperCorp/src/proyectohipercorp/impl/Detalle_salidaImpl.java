@@ -69,11 +69,11 @@ public class Detalle_salidaImpl implements IDetalle_salida{
     }
 
     @Override
-    public Detalle_salida obtener(int codigo) throws Exception {
+    public Detalle_salida obtener(int idSalida) throws Exception {
         Detalle_salida detalle_salida = null;
          String sql = "select idSalida, descripcion from detalle_salida where idSalida=?"; 
           List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, codigo));
+        lstPar.add(new Parametro(1, idSalida));
         Conexion con = null;
         try {
             con = new Conexion();
