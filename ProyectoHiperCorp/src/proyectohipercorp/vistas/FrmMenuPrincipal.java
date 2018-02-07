@@ -70,6 +70,14 @@ public class FrmMenuPrincipal extends JFrame {
     JMenuItem mniEliminaKardex;
     JMenuItem mniBuscaKardex;
     JMenuItem mniListaKardex;
+   
+    //Usuario
+    JMenu mnUsuario;
+    JMenuItem mniNuevoUsuario;
+    JMenuItem mniModificaUsuario;
+    JMenuItem mniEliminaUsuario;
+    JMenuItem mniBuscaUsuario;
+    JMenuItem mniListaUsuario;
     
    
     
@@ -168,10 +176,37 @@ public class FrmMenuPrincipal extends JFrame {
         mnProveedor.add(mniBuscaProveedor);
         mnProveedor.add(mniListaProveedor);
         
+        //Usuario
+        mnUsuario = new JMenu("Usuario");
+        mniNuevoUsuario = new JMenuItem("Nuevo");
+        mniNuevoUsuario.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniNuevoUsuarioActionPerformed(e);
+            }
+        });
+        mniModificaUsuario = new JMenuItem("Modifica");
+        mniEliminaUsuario = new JMenuItem("Elimina");
+        mniBuscaUsuario = new JMenuItem("Busca");
+        mniListaUsuario = new JMenuItem("Lista");
+         mniListaUsuario.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniListaUsuarioActionPerformed(e);
+            }
+        });
+        mnUsuario.add(mniNuevoUsuario);
+        mnUsuario.add(mniModificaUsuario);
+        mnUsuario.add(mniEliminaUsuario);
+        mnUsuario.addSeparator();
+        mnUsuario.add(mniBuscaUsuario);
+        mnUsuario.add(mniListaUsuario);
+        
         mnbPrincipal.add(mnInicio);
         mnbPrincipal.add(mnArticulos);
         mnbPrincipal.add(mnClientes);
         mnbPrincipal.add(mnProveedor);
+        mnbPrincipal.add(mnUsuario);
         mnInicio.add(mniLogin);
         mnInicio.add(mniSalir);
         
@@ -183,6 +218,18 @@ public class FrmMenuPrincipal extends JFrame {
         JFrame.setDefaultLookAndFeelDecorated(true); //que nos permite dejar a Substance la decoracion ( por asi decirlo) 
         SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.FindingNemoSkin");
     } //Fin public FrmMenuPrincipal
+    
+    //Usuario
+     public void mniNuevoUsuarioActionPerformed(ActionEvent e){
+        FrmNuevoUsuario frm = new FrmNuevoUsuario();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+       public void mniListaUsuarioActionPerformed(ActionEvent e){
+        FrmListaUsuario frm = new FrmListaUsuario();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
     
     //Proveedor
     public void mniNuevoProveedorActionPerformed(ActionEvent e){

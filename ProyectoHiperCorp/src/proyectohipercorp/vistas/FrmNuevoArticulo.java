@@ -9,8 +9,8 @@ import javax.swing.*;
 import proyectohipercorp.dao.*;
 import proyectohipercorp.impl.*;
 import proyectohipercorp.entidades.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.util.List;
+
 
 
 public class FrmNuevoArticulo extends JInternalFrame{
@@ -36,16 +36,16 @@ public class FrmNuevoArticulo extends JInternalFrame{
     JPanel pnlCentral;
     JPanel pnlPie;
     public FrmNuevoArticulo() {
-        this.setSize(300, 300);
+        this.setSize(400, 400);
         this.setLayout(new BorderLayout());
         this.setClosable(true);
         pnlCentral= new JPanel();
         pnlPie= new JPanel();
-        pnlCentral.setLayout(new GridLayout(10, 2, 5, 5));
+        pnlCentral.setLayout(new GridLayout(11, 2, 5, 5));
         pnlPie.setLayout(new GridLayout(1,2,5,5));
         
         lblTitulo0 = new JLabel("Datos Articulo");
-        
+    
         lblidArticulo= new JLabel("id Articulo:");
         lblnombre= new JLabel("Nombre:");
         lblcantidad= new JLabel("Cantidad:");
