@@ -1,58 +1,58 @@
 package ProyectoHipercorp.test;
 
-import proyectohipercorp.dao.*;
-import proyectohipercorp.entidades.*;
-import proyectohipercorp.impl.*;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 import java.util.*;
+import proyectohipercorp.dao.*;
+import proyectohipercorp.entidades.*;
+import proyectohipercorp.impl.*;
+public class FacturaTest {
 
-public class UsuarioTest {
-
-    public UsuarioTest() {
+    public FacturaTest() {
     }
 
     @Test
     public void pruebageneral() {
         int filasAfectadas = 0;
-        IUsuario usuarioDao = new UsuarioImpl();
+        IFactura facturaDao = new FacturaImpl();
        
-        Usuario usuario = new Usuario(
-                125, "Marco", "Amancha","Baños", "0983851377");
+        Factura factura = new Factura(
+                123, (java.sql.Date) new Date(),"Nuevo","Riobamba", 15 , 25);
         try {
-            filasAfectadas = usuarioDao.insertar(usuario);
+            filasAfectadas = facturaDao.insertar(factura);
         } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());
         }
         assertEquals((filasAfectadas > 0), true);
 
-        usuario = null;
+        factura = null;
         try {
-            usuario = usuarioDao.obtener(125);
+            factura = facturaDao.obtener(10003);
         } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());
         }
-        assertTrue(usuario != null);
+        assertTrue(factura != null);
 
         try {
-            usuario.setNombre("Prueba");
-            filasAfectadas= usuarioDao.modificar(usuario);
+            factura.setNombreArticulo("Prueba");
+            filasAfectadas= facturaDao.modificar(factura);
         } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());
         }
          assertEquals((filasAfectadas > 0), true);
          
-         List<Usuario> lista = new ArrayList<>();
+         List<Factura> lista = new ArrayList<>();
         try {
-            lista = usuarioDao.obtener();
+            lista = facturaDao.obtener();
         } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());
         }
         assertTrue(lista.size()>0);
 
         try {            
-            filasAfectadas= usuarioDao.eliminar(usuario);
+            filasAfectadas= facturaDao.eliminar(factura);
         } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());
         }
