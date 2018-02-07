@@ -1,58 +1,58 @@
 package ProyectoHipercorp.test;
 
-import proyectohipercorp.dao.*;
-import proyectohipercorp.entidades.*;
-import proyectohipercorp.impl.*;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 import java.util.*;
+import proyectohipercorp.dao.*;
+import proyectohipercorp.entidades.*;
+import proyectohipercorp.impl.*;
+public class ProveedorTest {
 
-public class UsuarioTest {
-
-    public UsuarioTest() {
+    public ProveedorTest() {
     }
 
     @Test
     public void pruebageneral() {
         int filasAfectadas = 0;
-        IUsuario usuarioDao = new UsuarioImpl();
+        IProveedor proveedorDao = new ProveedorImpl();
        
-        Usuario usuario = new Usuario(
-                125, "Marco", "Amancha","Baños", "0983851377");
+        Proveedor proveedor = new Proveedor(
+                123, "Tv", "15" , "Nuevo","Riobamba");
         try {
-            filasAfectadas = usuarioDao.insertar(usuario);
+            filasAfectadas = proveedorDao.insertar(proveedor);
         } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());
         }
         assertEquals((filasAfectadas > 0), true);
 
-        usuario = null;
+        proveedor = null;
         try {
-            usuario = usuarioDao.obtener(125);
+            proveedor = proveedorDao.obtener(10003);
         } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());
         }
-        assertTrue(usuario != null);
+        assertTrue(proveedor != null);
 
         try {
-            usuario.setNombre("Prueba");
-            filasAfectadas= usuarioDao.modificar(usuario);
+            proveedor.setNombre("Prueba");
+            filasAfectadas= proveedorDao.modificar(proveedor);
         } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());
         }
          assertEquals((filasAfectadas > 0), true);
          
-         List<Usuario> lista = new ArrayList<>();
+         List<Proveedor> lista = new ArrayList<>();
         try {
-            lista = usuarioDao.obtener();
+            lista = proveedorDao.obtener();
         } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());
         }
         assertTrue(lista.size()>0);
 
         try {            
-            filasAfectadas= usuarioDao.eliminar(usuario);
+            filasAfectadas= proveedorDao.eliminar(proveedor);
         } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());
         }
