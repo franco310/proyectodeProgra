@@ -1,12 +1,12 @@
 
 package ProyectoHipercorp.test;
+import proyectohipercorp.entidades.*;
+import proyectohipercorp.dao.*;
+import proyectohipercorp.impl.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import java.util.*;
 
-import java.util.Date;
-
-/**
- *
- * @author DiegoPatricio
- */
 public class VentaTest {
 
     public VentaTest() {
@@ -16,13 +16,12 @@ public class VentaTest {
     public void pruebageneral() {
         int filasAfectadas = 0;
         IVenta ventaDao = new VentaImpl();
+        Venta venta = new Venta();
         
-        Cliente cliente = new Cliente(1, "Marco");
-        Usuario usuario = new Usuario(1, "Francisco");
+        Cliente cliente = new Cliente(1,"17-10-2017","12-12-2018", "Marco","Marco");
+        Usuario usuario = new Usuario(1,"1-12-2017","12-12-2018", "Francisco","Francisco");
         
-        
-        Venta venta = new Venta(
-                126, new Date(), new Date(), cliente, usuario);
+      
         try {
             filasAfectadas = ventaDao.insertar(venta);
         } catch (Exception e) {
@@ -39,7 +38,7 @@ public class VentaTest {
         assertTrue(venta != null);
 
         try {
-            venta.setNombres("Prueba");
+            venta.setCliente(cliente);
             filasAfectadas= ventaDao.modificar(venta);
         } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());
