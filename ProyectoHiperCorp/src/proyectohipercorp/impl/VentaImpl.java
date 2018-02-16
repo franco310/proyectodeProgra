@@ -22,8 +22,8 @@ public class VentaImpl implements IVenta{
                 + "(?,?,?,?,?)";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, venta.getIdVenta()));
-        lstPar.add(new Parametro(2, venta.getFecha_anulacion()));
-        lstPar.add(new Parametro(3, venta.getFecha_emision()));
+        lstPar.add(new Parametro(2, venta.getFecha_emision()));
+        lstPar.add(new Parametro(3, venta.getFecha_anulacion()));
         lstPar.add(new Parametro(4, venta.getCliente().getIdCliente()));
         lstPar.add(new Parametro(5, venta.getUsuario().getIdUsuario()));
              
@@ -46,7 +46,7 @@ public class VentaImpl implements IVenta{
     public int modificar(Venta venta) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "UPDATE venta"
-                + "   SET Idventa=?, fecha_anulacion=?,fecha-emision =?,cliente=?, "
+                + "   SET Idventa=?, fecha-emision =?,fecha_anulacion=?,cliente=?, "
                 + " usuario=? "
                 + " where Idventa=?";
         List<Parametro> lstPar = new ArrayList<>();
@@ -94,8 +94,8 @@ public class VentaImpl implements IVenta{
     @Override
     public Venta obtener(int IdProvedor) throws Exception {
         Venta venta = null;
-        String sql = "SELECT Idventa, fecha_anulacion, fecha_emision ,cliente,  "
-                + " usuario, FROM venta where Idventa=?";
+        String sql = "SELECT Idventa, fecha_emision , fecha_anulacion, cliente,  "
+                + " usuario FROM venta where Idventa=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, IdProvedor));
         Conexion con = null;
@@ -108,8 +108,8 @@ public class VentaImpl implements IVenta{
                 venta.setIdVenta(rst.getInt(1));
                 venta.setFecha_anulacion(rst.getDate(2));
                 venta.setFecha_emision(rst.getDate(3));
-                ICliente clientedao =new ClienteImpl();
-                Cliente cliente=clientedao.obtener(rst.getInt(4));
+                ICliente clientedao = new ClienteImpl();
+                Cliente cliente = clientedao.obtener(rst.getInt(4));
                 venta.setCliente(cliente);
                 IUsuario usuariodao=new UsuarioImpl();
                 Usuario usuario =usuariodao.obtener(rst.getInt(5));
@@ -127,8 +127,8 @@ public class VentaImpl implements IVenta{
     @Override
     public List<Venta> obtener() throws Exception {
         List<Venta> lista = new ArrayList<>();
-         String sql = "SELECT Idventa, fecha_anulacion, fecha_emision ,cliente "
-                + " usuario, FROM venta ";        
+         String sql = "SELECT Idventa, fecha_emision ,fecha_anulacion, cliente, "
+                + " usuario FROM venta ";        
         Conexion con = null;
         try {
             con = new Conexion();

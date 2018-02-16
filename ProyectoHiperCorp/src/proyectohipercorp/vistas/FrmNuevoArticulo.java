@@ -97,6 +97,7 @@ public class FrmNuevoArticulo extends JInternalFrame{
     } 
     
     public void btnAceptarActionListener(ActionEvent e){
+        
         IArticulo articuloDao = new ArticuloImpl();
         Articulo articulo = new Articulo();
         articulo.setIdArticulo(Integer.parseInt(txtidArticulo.getText()));
@@ -106,7 +107,8 @@ public class FrmNuevoArticulo extends JInternalFrame{
         articulo.setObservacio(txtobservacio.getText());
      
         
-        try {
+           try {
+        
             if(articuloDao.insertar(articulo)>0){
                 JOptionPane.showMessageDialog(this,"Guaradado correctamente!!",
                 "Transacción", JOptionPane.INFORMATION_MESSAGE);

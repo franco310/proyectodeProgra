@@ -15,13 +15,12 @@ public class UsuarioImpl implements IUsuario{
     public int insertar(Usuario usuario) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "insert into usuario  values "
-                + "(?,?,?,?,?)";
+                + "(?,?,?,?)";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, usuario.getIdUsuario()));
         lstPar.add(new Parametro(2, usuario.getNombre()));
         lstPar.add(new Parametro(3, usuario.getApellido()));
-        lstPar.add(new Parametro(4, usuario.getDireccion()));
-        lstPar.add(new Parametro(5, usuario.getTelefono()));
+        lstPar.add(new Parametro(4, usuario.getContraseña()));
              
         Conexion con = null;
         try {
@@ -42,15 +41,15 @@ public class UsuarioImpl implements IUsuario{
     public int modificar(Usuario usuario) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "UPDATE usuario"
-                + "   SET Idusuario=?, nombre=?, apellidos=?, "
-                + " direccion=?, telefono=? "
-                + " where Idusuario=?";
+                + "   SET Idusuario=?, nombre=?, apellido=?, "
+                + " contraseña=? "
+                + " where idUsuario=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, usuario.getIdUsuario()));
         lstPar.add(new Parametro(2, usuario.getNombre()));
         lstPar.add(new Parametro(3, usuario.getApellido()));
-        lstPar.add(new Parametro(4, usuario.getDireccion()));
-        lstPar.add(new Parametro(5, usuario.getTelefono()));
+        lstPar.add(new Parametro(4, usuario.getContraseña()));
+        
         Conexion con = null;
         try {
             con = new Conexion();
@@ -69,7 +68,7 @@ public class UsuarioImpl implements IUsuario{
     @Override
     public int eliminar(Usuario usuario) throws Exception {
         int numFilasAfectadas = 0;
-         String sql = "DELETE FROM usuario  where Idusuario=?";
+         String sql = "DELETE FROM usuario  where idUsuario=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, usuario.getIdUsuario()));       
         Conexion con = null;
@@ -88,12 +87,12 @@ public class UsuarioImpl implements IUsuario{
     }
 
     @Override
-    public Usuario obtener(int IdProvedor) throws Exception {
+    public Usuario obtener(int IdUsuario) throws Exception {
         Usuario usuario = null;
-        String sql = "SELECT Idusuario, nombre , apellidos,  "
-                + " direccion,telefono , FROM usuario where Idusuario=?";
+        String sql = "SELECT idUsuario, nombre , apellidos,  "
+                + " contraseña , FROM usuario where idUsuario=?";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, IdProvedor));
+        lstPar.add(new Parametro(1, IdUsuario));
         Conexion con = null;
         try {
             con = new Conexion();
@@ -104,8 +103,8 @@ public class UsuarioImpl implements IUsuario{
                 usuario.setIdUsuario(rst.getInt(1));
                 usuario.setNombre(rst.getString(2));
                 usuario.setApellido(rst.getString(3));
-                usuario.setDireccion(rst.getString(4)); 
-                usuario.setTelefono(rst.getString(5));   
+                usuario.setContraseña(rst.getString(4)); 
+                  
                 
             }
         } catch (Exception e) {
@@ -120,8 +119,8 @@ public class UsuarioImpl implements IUsuario{
     @Override
     public List<Usuario> obtener() throws Exception {
         List<Usuario> lista = new ArrayList<>();
-         String sql = "SELECT Idusuario, nombre , apellidos "
-                + " direccion,telefono FROM usuario ";        
+         String sql = "SELECT idUsuario, nombre , apellido, "
+                + " contraseña FROM usuario ";        
         Conexion con = null;
         try {
             con = new Conexion();
@@ -133,9 +132,7 @@ public class UsuarioImpl implements IUsuario{
                 usuario.setIdUsuario(rst.getInt(1));
                 usuario.setNombre(rst.getString(2));
                 usuario.setApellido(rst.getString(3));
-                usuario.setDireccion(rst.getString(4)); 
-                usuario.setTelefono(rst.getString(5));   
-                               
+                usuario.setContraseña(rst.getString(4));           
                 lista.add(usuario);
             }
         } catch (Exception e) {

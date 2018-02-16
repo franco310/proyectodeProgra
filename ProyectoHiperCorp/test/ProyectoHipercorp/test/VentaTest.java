@@ -18,8 +18,9 @@ public class VentaTest {
         IVenta ventaDao = new VentaImpl();
         Venta venta = new Venta();
         
-        Cliente cliente = new Cliente(1,"17-10-2017","12-12-2018", "Marco","Marco");
-        Usuario usuario = new Usuario(1,"1-12-2017","12-12-2018", "Francisco","Francisco");
+        
+        Cliente cliente = new Cliente(1,"nuevo","apellido", "direc","05050");
+        Usuario usuario = new Usuario(1,"2-12-2017","2-12-2018", "Francisco");
         
       
         try {
@@ -39,6 +40,12 @@ public class VentaTest {
 
         try {
             venta.setCliente(cliente);
+            filasAfectadas= ventaDao.modificar(venta);
+        } catch (Exception e) {
+            System.out.println("Error:" + e.getMessage());
+        }
+         try {
+            venta.setUsuario(usuario);
             filasAfectadas= ventaDao.modificar(venta);
         } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());

@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import org.jvnet.substance.SubstanceLookAndFeel;
+import org.jvnet.substance.watermark.SubstanceImageWatermark;
 
 
 public class FrmMenuPrincipal extends JFrame {
@@ -79,18 +80,25 @@ public class FrmMenuPrincipal extends JFrame {
     JMenuItem mniBuscaUsuario;
     JMenuItem mniListaUsuario;
     
-   
+   //Venta
+    JMenu mnVentas;
+    JMenuItem mniNuevoVentas;
+    JMenuItem mniModificaVentas;
+    JMenuItem mniEliminaVentas;
+    JMenuItem mniBuscaVentas;
+    JMenuItem mniListaVentas;
     
     JDesktopPane dkpEscritorio;
     
     public FrmMenuPrincipal(){
         //Inicio
         dkpEscritorio= new JDesktopPane();
-        dkpEscritorio.setBackground(new Color(250, 250, 250));        
+        dkpEscritorio.setBackground(new Color(240, 240, 240));      
         mnbPrincipal = new JMenuBar();
         mnInicio = new JMenu("Inicio");
         mniLogin = new JMenuItem("Iniciar Sesión");
         mniSalir = new JMenuItem("Salir");
+
         mniSalir.addActionListener(new ActionListener() {
         @Override
             public void actionPerformed(ActionEvent e) {
@@ -98,31 +106,7 @@ public class FrmMenuPrincipal extends JFrame {
             }
         });
         
-        //Articulo
-        mnArticulos= new JMenu("Articulos");
-        mniNuevoArticulo= new JMenuItem("Nuevo");
-        mniNuevoArticulo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mniNuevoArticuloActionPerformed(e);
-            }
-        });
-        mniModificaArticulo= new JMenuItem("Modifica");
-        mniEliminaArticulo= new JMenuItem("Elimina");
-        mniBuscaArticulo= new JMenuItem("Busca");
-        mniListaArticulo= new JMenuItem("Lista"); 
-         mniListaArticulo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mniListaArticuloActionPerformed(e);
-            }
-        });
-        mnArticulos.add(mniNuevoArticulo);
-        mnArticulos.add(mniModificaArticulo);
-        mnArticulos.add(mniEliminaArticulo);
-        mnArticulos.addSeparator();
-        mnArticulos.add(mniBuscaArticulo);
-        mnArticulos.add(mniListaArticulo);
+       
         
         //Clientes
         mnClientes= new JMenu("Clientes");
@@ -176,8 +160,34 @@ public class FrmMenuPrincipal extends JFrame {
         mnProveedor.add(mniBuscaProveedor);
         mnProveedor.add(mniListaProveedor);
         
+        //Articulo
+        mnArticulos= new JMenu("Articulos");
+        mniNuevoArticulo = new JMenuItem("Nuevo");
+        mniNuevoArticulo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniNuevoArticuloActionPerformed(e);
+            }
+        });
+        mniModificaArticulo= new JMenuItem("Modifica");
+        mniEliminaArticulo= new JMenuItem("Elimina");
+        mniBuscaArticulo= new JMenuItem("Busca");
+        mniListaArticulo= new JMenuItem("Lista"); 
+        mniListaArticulo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniListaArticuloActionPerformed(e);
+            }
+        });
+        mnArticulos.add(mniNuevoArticulo);
+        mnArticulos.add(mniModificaArticulo);
+        mnArticulos.add(mniEliminaArticulo);
+        mnArticulos.addSeparator();
+        mnArticulos.add(mniBuscaArticulo);
+        mnArticulos.add(mniListaArticulo);
+        
         //Usuario
-        mnUsuario = new JMenu("Usuario");
+        mnUsuario = new JMenu("Usuarios");
         mniNuevoUsuario = new JMenuItem("Nuevo");
         mniNuevoUsuario.addActionListener(new ActionListener() {
             @Override
@@ -202,22 +212,62 @@ public class FrmMenuPrincipal extends JFrame {
         mnUsuario.add(mniBuscaUsuario);
         mnUsuario.add(mniListaUsuario);
         
+        //Ventas
+        mnVentas = new JMenu("Ventas");
+        mniNuevoVentas= new JMenuItem("Nuevo");
+        mniNuevoVentas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniNuevoVentasActionPerformed(e);
+            }
+        });
+        mniModificaVentas= new JMenuItem("Modifica");
+        mniEliminaVentas= new JMenuItem("Elimina");
+        mniBuscaVentas= new JMenuItem("Busca");
+        mniListaVentas= new JMenuItem("Lista"); 
+        mniListaVentas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniListaVentasActionPerformed(e);
+            }
+        });
+        mnVentas.add(mniNuevoVentas);
+        mnVentas.add(mniModificaVentas);
+        mnVentas.add(mniEliminaVentas);
+        mnVentas.addSeparator();
+        mnVentas.add(mniBuscaVentas);
+        mnVentas.add(mniListaVentas);
+        
         mnbPrincipal.add(mnInicio);
-        mnbPrincipal.add(mnArticulos);
         mnbPrincipal.add(mnClientes);
         mnbPrincipal.add(mnProveedor);
+        mnbPrincipal.add(mnArticulos);
         mnbPrincipal.add(mnUsuario);
+        mnbPrincipal.add(mnVentas);
         mnInicio.add(mniLogin);
         mnInicio.add(mniSalir);
+        
         
         this.setLayout(new BorderLayout());
         this.add(mnbPrincipal, BorderLayout.NORTH);
         this.add(dkpEscritorio, BorderLayout.CENTER);
         this.setExtendedState(MAXIMIZED_BOTH); //Para maximizar
+        this.setBounds(250,250,450,450);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); //Para terminar el programa
-        JFrame.setDefaultLookAndFeelDecorated(true); //que nos permite dejar a Substance la decoracion ( por asi decirlo) 
-        SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.FindingNemoSkin");
+        
     } //Fin public FrmMenuPrincipal
+    
+    //Ventas
+     public void mniNuevoVentasActionPerformed(ActionEvent e){
+        FrmNuevoVentas frm = new FrmNuevoVentas();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+       public void mniListaVentasActionPerformed(ActionEvent e){
+        FrmListaVentas frm = new FrmListaVentas();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
     
     //Usuario
      public void mniNuevoUsuarioActionPerformed(ActionEvent e){
@@ -265,11 +315,19 @@ public class FrmMenuPrincipal extends JFrame {
         dkpEscritorio.add(frm);
         frm.setVisible(true);
     }
+     
+   
      public void mniSalirActionPerformed(ActionEvent e){
         System.exit(0);
     }
     
     public static void main(String[] args) {
+         JFrame.setDefaultLookAndFeelDecorated(true); //que nos permite dejar a Substance la decoracion ( por asi decirlo) 
+       SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.RavenGraphiteSkin"); 
+        SubstanceLookAndFeel.setCurrentWatermark("org.jvnet.substance.watermark. SubstanceBubblesWatermark");//Ejemplo de aplicacion de un watermark de Substance
+        SubstanceLookAndFeel.setCurrentWatermark( new SubstanceImageWatermark("e:\\hipercorp.jpg"));
+        SubstanceLookAndFeel.setImageWatermarkOpacity(new Float(0.9));//valor aproximado de la opacidad por default de imageWatermark
+       // SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.CremeSkin"); // Setencia que aplica el skin Creme de Substance
         FrmMenuPrincipal frm = new FrmMenuPrincipal();
         frm.setVisible(true);
     }

@@ -1,31 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package proyectohipercorp.entidades;
 
-/**
- *
- * @author diego
- */
 public class Usuario {
     private int idUsuario;
     private String nombre;
     private String apellido;
-    private String direccion;
-     private String telefono;
+    private String contraseña;
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombre, String apellido, String direccion, String telefono) {
+    public Usuario(int idUsuario, String nombre, String apellido, String contraseña) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.direccion = direccion;
-        this.telefono = telefono;
+        this.contraseña = contraseña;
     }
+
+   
 
     public int getIdUsuario() {
         return idUsuario;
@@ -51,20 +43,17 @@ public class Usuario {
         this.apellido = apellido;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getContraseña() {
+        return contraseña;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    } 
+    
+    @Override
+    public String toString() {
+        return nombre; 
     }
      
 }

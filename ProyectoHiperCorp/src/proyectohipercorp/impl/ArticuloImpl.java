@@ -12,13 +12,15 @@ public class ArticuloImpl implements IArticulo {
     public int insertar(Articulo articulo) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "insert into articulo  values "
-                +"(?,?,?,?,?)";
+                + "(?,?,?,?,?)";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, articulo.getIdArticulo()));
         lstPar.add(new Parametro(2, articulo.getNombre()));
         lstPar.add(new Parametro(3, articulo.getCantidad()));
         lstPar.add(new Parametro(4, articulo.getEstado()));
         lstPar.add(new Parametro(5, articulo.getObservacio()));
+        
+        
         
         Conexion con = null;
         try {
@@ -39,14 +41,17 @@ public class ArticuloImpl implements IArticulo {
     public int modificar(Articulo articulo) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "UPDATE articulo"
-                + "   SET idArticulo=?, nombre=?, cantidad=?, estado=?, observacio=?, "
-                + " where idArticulo=?";
+                + "   SET idArticulo=?, nombre=?, cantidad=?, estado=?, "
+                + "Observacio=? where codigo=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, articulo.getIdArticulo()));
         lstPar.add(new Parametro(2, articulo.getNombre()));
         lstPar.add(new Parametro(3, articulo.getCantidad()));
         lstPar.add(new Parametro(4, articulo.getEstado()));
         lstPar.add(new Parametro(5, articulo.getObservacio()));
+         
+        
+              
         Conexion con = null;
         try {
             con = new Conexion();
@@ -65,7 +70,7 @@ public class ArticuloImpl implements IArticulo {
     @Override
     public int eliminar(Articulo articulo) throws Exception {
         int numFilasAfectadas = 0;
-         String sql = "DELETE FROM estudiante  where idArticulo=?";
+         String sql = "DELETE FROM articulo  where codigo=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, articulo.getIdArticulo()));       
         Conexion con = null;
@@ -86,8 +91,8 @@ public class ArticuloImpl implements IArticulo {
     @Override
     public Articulo obtener(int idArticulo) throws Exception {
         Articulo articulo = null;
-        String sql = "SELECT idArticulo, nombre, cantidad, estado, observacio, "
-                + " FROM articulo where idArticulo=?";
+        String sql = "SELECT idArticulo,nombre , cantidad, estado, "
+                + "observacio FROM articulo where codigo=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, idArticulo));
         Conexion con = null;
@@ -102,6 +107,7 @@ public class ArticuloImpl implements IArticulo {
                 articulo.setCantidad(rst.getInt(3));
                 articulo.setEstado(rst.getString(4));
                 articulo.setObservacio(rst.getString(5));
+                 
                 
             }
         } catch (Exception e) {
@@ -116,8 +122,8 @@ public class ArticuloImpl implements IArticulo {
     @Override
     public List<Articulo> obtener() throws Exception {
         List<Articulo> lista = new ArrayList<>();
-         String sql = "SELECT idArticulo, nombre, cantidad, estado, observacio, "
-                + "   FROM articulo ";        
+         String sql = "SELECT idArticulo, nombre, cantidad, estado, "
+                 + "observacio FROM articulo";        
         Conexion con = null;
         try {
             con = new Conexion();
@@ -131,7 +137,7 @@ public class ArticuloImpl implements IArticulo {
                 articulo.setCantidad(rst.getInt(3));
                 articulo.setEstado(rst.getString(4));
                 articulo.setObservacio(rst.getString(5));
-                lista.add(articulo);
+               
             }
         } catch (Exception e) {
             throw e;

@@ -1,9 +1,7 @@
+
 package ProyectoHipercorp.test;
-
-
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 import java.util.*;
 import proyectohipercorp.dao.*;
 import proyectohipercorp.entidades.*;
@@ -17,9 +15,7 @@ public class ArticuloTest {
     public void pruebageneral() {
         int filasAfectadas = 0;
         IArticulo articuloDao = new ArticuloImpl();
-       
-        Articulo articulo = new Articulo(
-                123, "Tv", 15 , "Nuevo","Riobamba");
+        Articulo articulo = new Articulo( 10, "Radio", 15 , "Nuevo","Riobamba");
         try {
             filasAfectadas = articuloDao.insertar(articulo);
         } catch (Exception e) {
@@ -29,7 +25,7 @@ public class ArticuloTest {
 
         articulo = null;
         try {
-            articulo = articuloDao.obtener(10003);
+            articulo = articuloDao.obtener(10);
         } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());
         }

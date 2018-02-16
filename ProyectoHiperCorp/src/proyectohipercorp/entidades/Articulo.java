@@ -1,4 +1,8 @@
+
+
 package proyectohipercorp.entidades;
+import java.util.*;
+
 public class Articulo {
     private int idArticulo;
     private String nombre;

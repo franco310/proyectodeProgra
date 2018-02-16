@@ -19,7 +19,7 @@ public class ClienteTest {
         int filasAfectadas = 0;
         ICliente clienteDao = new ClienteImpl();
        
-        Cliente cliente = new Cliente(124, "Diego", "Curimilma","Ayacucho", "0983851377" );
+        Cliente cliente = new Cliente(18, "Diego", "Curimilma","Ayacucho", "0983851377" );
         try {
             filasAfectadas = clienteDao.insertar(cliente);
         } catch (Exception e) {
@@ -33,7 +33,7 @@ public class ClienteTest {
         } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());
         }
-        assertTrue(cliente != null);
+        
 
         try {
             cliente.setNombre("Prueba");

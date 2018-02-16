@@ -22,7 +22,7 @@ public class FrmListaUsuario  extends JInternalFrame{
         this.setSize(800, 600);
         this.setLayout(new BorderLayout());
         this.setClosable(true);
-        lblTitulo = new JLabel("Listado Docentes");
+        lblTitulo = new JLabel("Listado Usuarios");
         tabla = new JTable();
         this.add(lblTitulo, BorderLayout.NORTH);
         this.add(tabla, BorderLayout.CENTER);
@@ -32,10 +32,9 @@ public class FrmListaUsuario  extends JInternalFrame{
     public void cargarTabla(){
         modelo = new  DefaultTableModel();
         modelo.addColumn("Codigo");
-        modelo.addColumn("Cedula");
         modelo.addColumn("Nombre");
-        modelo.addColumn("Apellido");
-        modelo.addColumn("Fecha Nacimiento");
+        modelo.addColumn("Apellido"); 
+        modelo.addColumn("Contraseña"); 
         
         List<Usuario> lista = new ArrayList<>();
         try {
@@ -48,7 +47,7 @@ public class FrmListaUsuario  extends JInternalFrame{
         }
         for(Usuario est : lista){
             modelo.addRow(new Object[] { est.getIdUsuario(), est.getNombre(),
-                est.getApellido(), est.getDireccion(),est.getTelefono()});
+                est.getApellido(), est.getContraseña()});
             }
            tabla.setModel(modelo); 
         }

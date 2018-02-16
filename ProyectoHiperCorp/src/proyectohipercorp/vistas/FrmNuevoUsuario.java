@@ -23,14 +23,14 @@ public class FrmNuevoUsuario extends JInternalFrame {
     JLabel lblidUsuario;
     JLabel lblnombre;
     JLabel lblapellido;
-    JLabel lbldireccion;
-    JLabel lbltelefono;
+    JLabel lblcontraseña;
+    
     
     JTextField txtidUsuario;
     JTextField txtnombre;
     JTextField txtapellido;
-    JTextField txtdireccion;
-    JTextField txttelefono;
+    JTextField txtcontraseña;
+    ;
     
     JButton btnLimpiar;
     JButton btnAceptar;
@@ -51,16 +51,16 @@ public class FrmNuevoUsuario extends JInternalFrame {
         lblidUsuario = new JLabel("idUsuario:");
         lblnombre = new JLabel("Nombre:");
         lblapellido = new JLabel("Apellido:");
-        lbldireccion = new JLabel("Direccion:");
-        lbltelefono = new JLabel("Telefono:");
+        lblcontraseña = new JLabel("Contraseña:");
+        
        
         
 
         txtidUsuario = new JTextField(2);
         txtnombre = new JTextField(2);
         txtapellido = new JTextField(2);
-        txtdireccion = new JTextField(2);
-        txttelefono = new JTextField(2);
+        txtcontraseña = new JTextField(2);
+       
                
         btnLimpiar= new JButton("Limpiar");
         btnAceptar= new JButton("Aceptar");
@@ -71,10 +71,9 @@ public class FrmNuevoUsuario extends JInternalFrame {
         pnlCentral.add(txtnombre);
         pnlCentral.add(lblapellido);
         pnlCentral.add(txtapellido);
-        pnlCentral.add(lbldireccion);
-        pnlCentral.add(txtdireccion);
-        pnlCentral.add(lbltelefono);
-        pnlCentral.add(txttelefono);
+        pnlCentral.add(lblcontraseña);
+        pnlCentral.add(txtcontraseña);
+       ;
                          
         btnAceptar.addActionListener(new ActionListener() {
             @Override
@@ -103,8 +102,8 @@ public class FrmNuevoUsuario extends JInternalFrame {
         usuario.setIdUsuario(Integer.parseInt(txtidUsuario.getText()));
         usuario.setNombre(txtnombre.getText());
         usuario.setApellido(txtapellido.getText());
-        usuario.setDireccion(txtdireccion.getText());
-        usuario.setTelefono(txttelefono.getText());
+        usuario.setContraseña(txtcontraseña.getText());
+        
       
         
         try {
