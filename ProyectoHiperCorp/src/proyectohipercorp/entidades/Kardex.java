@@ -8,14 +8,14 @@ public class Kardex {
     
     private Producto producto;
     private Date fechaEmision;
-    private Date tipotransaccion;
+    private String tipotransaccion;
     private int existencias;
     private int valortotal;
 
     public Kardex() {
     }
 
-    public Kardex(int idKardex, Producto producto, Date fechaEmision, Date tipotransaccion, int existencias, int valortotal) {
+    public Kardex(int idKardex, Producto producto, Date fechaEmision, String tipotransaccion, int existencias, int valortotal) {
         this.idKardex = idKardex;
         this.producto = producto;
         this.fechaEmision = fechaEmision;
@@ -48,11 +48,11 @@ public class Kardex {
         this.fechaEmision = fechaEmision;
     }
 
-    public Date getTipotransaccion() {
+    public String getTipotransaccion() {
         return tipotransaccion;
     }
 
-    public void setTipotransaccion(Date tipotransaccion) {
+    public void setTipotransaccion(String tipotransaccion) {
         this.tipotransaccion = tipotransaccion;
     }
 
@@ -71,5 +71,6 @@ public class Kardex {
     public void setValortotal(int valortotal) {
         this.valortotal = valortotal;
     }
-  
+
+    
 }
