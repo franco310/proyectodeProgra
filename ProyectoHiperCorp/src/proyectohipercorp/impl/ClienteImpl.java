@@ -7,6 +7,7 @@ import proyectohipercorp.entidades.Cliente;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
 public class ClienteImpl implements ICliente{
     
     @Override
@@ -20,6 +21,8 @@ public class ClienteImpl implements ICliente{
           lstPar.add(new Parametro(3, cliente.getApellido()));
           lstPar.add(new Parametro(4, cliente.getDireccion()));
           lstPar.add(new Parametro(5, cliente.getTelefono()));
+          lstPar.add(new Parametro(5, cliente.getEmail()));
+          lstPar.add(new Parametro(5, cliente.getFecha_Nace()));
           
         Conexion con = null;
         try{
@@ -39,13 +42,15 @@ public class ClienteImpl implements ICliente{
         int numFilasAfectadas = 0;
         String sql = "UPDATE cliente"
                 + "   SET IdCliente=?,nombre=?, apellido=?,  direccion=?, telefono=? "
-                + " where IdCliente=?";
+                + " email=?,fecha_nace=?, where IdCliente=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, cliente.getIdCliente()));
           lstPar.add(new Parametro(2, cliente.getNombre()));
           lstPar.add(new Parametro(3, cliente.getApellido()));
           lstPar.add(new Parametro(4, cliente.getDireccion()));
           lstPar.add(new Parametro(5, cliente.getTelefono()));  
+          lstPar.add(new Parametro(5, cliente.getEmail()));
+          lstPar.add(new Parametro(5, cliente.getFecha_Nace()));
         Conexion con = null;
         try {
             con = new Conexion();
@@ -60,7 +65,6 @@ public class ClienteImpl implements ICliente{
         }
         return numFilasAfectadas;
     }
-
     @Override
     public int eliminar(Cliente cliente) throws Exception {
         int numFilasAfectadas = 0;
@@ -86,7 +90,7 @@ public class ClienteImpl implements ICliente{
     public Cliente obtener(int idCliente) throws Exception {
         Cliente cliente = null;
         String sql = "SELECT IdCliente, nombre , apellido ,direccion,"
-                + " telefono  FROM cliente where IdCliente=?";
+                + " telefono ,email,fecha_nace FROM cliente where IdCliente=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, idCliente));
         Conexion con = null;
@@ -100,7 +104,9 @@ public class ClienteImpl implements ICliente{
                 cliente.setNombre(rst.getString(2));
                 cliente.setApellido(rst.getString(3));
                 cliente.setDireccion(rst.getString(4));                
-                cliente.setTelefono(rst.getString(5));   
+                cliente.setTelefono(rst.getString(5)); 
+                cliente.setEmail(rst.getString(6)); 
+                cliente.setFecha_Nace(rst.getDate(7)); 
             }
         } catch (Exception e) {
             throw e;
@@ -115,7 +121,7 @@ public class ClienteImpl implements ICliente{
     public List<Cliente> obtener() throws Exception {
         List<Cliente> lista = new ArrayList<>();
          String sql = "SELECT IdCliente, nombre , apellido, direccion,"
-                 + " telefono  FROM cliente ";       
+                 + " telefono,email,fecha_nace  FROM cliente ";       
         Conexion con = null;
         try {
             con = new Conexion();
@@ -128,9 +134,13 @@ public class ClienteImpl implements ICliente{
                 cliente.setNombre(rst.getString(2));
                 cliente.setApellido(rst.getString(3));
                 cliente.setDireccion(rst.getString(4));                
-                cliente.setTelefono(rst.getString(5));                
+                cliente.setTelefono(rst.getString(5));   
+                cliente.setEmail(rst.getString(6)); 
+                cliente.setFecha_Nace(rst.getDate(7)); 
                 lista.add(cliente);
             }
+            
+            
         } catch (Exception e) {
             throw e;
         } finally {
