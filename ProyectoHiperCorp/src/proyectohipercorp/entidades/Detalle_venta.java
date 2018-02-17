@@ -4,9 +4,9 @@ package proyectohipercorp.entidades;
 import java.sql.Date;
 
 public class Detalle_venta {
-    
- private Venta venta;
-    private Articulo articulo;
+    private int idDetalle_venta;
+    private FacturaVenta facturaventa;
+    private Producto producto;
     private int  cantidad;   
     private Date fecha_anulacion;
     private int monto;
@@ -14,28 +14,38 @@ public class Detalle_venta {
     public Detalle_venta() {
     }
 
-    public Detalle_venta(Venta venta, Articulo articulo, int cantidad, Date fecha_anulacion, int monto) {
-        this.venta = venta;
-        this.articulo = articulo;
+    public Detalle_venta(int idDetalle_venta, FacturaVenta facturaventa, Producto producto, int cantidad, Date fecha_anulacion, int monto) {
+        this.idDetalle_venta = idDetalle_venta;
+        this.facturaventa = facturaventa;
+        this.producto = producto;
         this.cantidad = cantidad;
         this.fecha_anulacion = fecha_anulacion;
         this.monto = monto;
     }
 
-    public Venta getVenta() {
-        return venta;
+    public int getIdDetalle_venta() {
+        return idDetalle_venta;
+        
     }
 
-    public void setVenta(Venta venta) {
-        this.venta = venta;
+    public void setIdDetalle_venta(int idDetalle_venta) {
+        this.idDetalle_venta = idDetalle_venta;
     }
 
-    public Articulo getArticulo() {
-        return articulo;
+    public FacturaVenta getFacturaventa() {
+        return facturaventa;
     }
 
-    public void setArticulo(Articulo articulo) {
-        this.articulo = articulo;
+    public void setFacturaventa(FacturaVenta facturaventa) {
+        this.facturaventa = facturaventa;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 
     public int getCantidad() {
@@ -60,5 +70,6 @@ public class Detalle_venta {
 
     public void setMonto(int monto) {
         this.monto = monto;
-    }    
+    }
+
 }
