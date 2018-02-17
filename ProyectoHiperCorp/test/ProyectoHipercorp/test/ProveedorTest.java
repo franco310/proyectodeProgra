@@ -19,7 +19,7 @@ public class ProveedorTest {
         IProveedor proveedorDao = new ProveedorImpl();
        
         Proveedor proveedor = new Proveedor(
-                123, "Tv", "15" , "Nuevo","Riobamba");
+                3, "Tv", "15" , "Nuevo","Riobamba");
         try {
             filasAfectadas = proveedorDao.insertar(proveedor);
         } catch (Exception e) {
@@ -33,7 +33,6 @@ public class ProveedorTest {
         } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());
         }
-        assertTrue(proveedor != null);
 
         try {
             proveedor.setNombre("Prueba");

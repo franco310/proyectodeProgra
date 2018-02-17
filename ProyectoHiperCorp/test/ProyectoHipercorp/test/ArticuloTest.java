@@ -15,7 +15,7 @@ public class ArticuloTest {
     public void pruebageneral() {
         int filasAfectadas = 0;
         IArticulo articuloDao = new ArticuloImpl();
-        Articulo articulo = new Articulo( 10, "Radio", 15 , "Nuevo","Riobamba");
+        Articulo articulo = new Articulo( 3, "Radio", 15 , "Nuevo","Riobamba");
         try {
             filasAfectadas = articuloDao.insertar(articulo);
         } catch (Exception e) {
@@ -29,7 +29,6 @@ public class ArticuloTest {
         } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());
         }
-        assertTrue(articulo != null);
 
         try {
             articulo.setNombre("Prueba");
