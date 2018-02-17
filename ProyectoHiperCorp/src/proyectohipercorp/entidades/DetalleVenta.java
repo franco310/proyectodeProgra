@@ -3,17 +3,17 @@ package proyectohipercorp.entidades;
 
 import java.sql.Date;
 
-public class Detalle_venta {
+public class DetalleVenta {
     private int idCodigodetalle_venta;
     private  Producto producto;
     private FacturaVenta facturaventa;
     private int precio;
     private int preciototal;
 
-    public Detalle_venta() {
+    public DetalleVenta() {
     }
 
-    public Detalle_venta(int idCodigodetalle_venta, Producto producto, FacturaVenta facturaventa, int precio, int preciototal) {
+    public DetalleVenta(int idCodigodetalle_venta, Producto producto, FacturaVenta facturaventa, int precio, int preciototal) {
         this.idCodigodetalle_venta = idCodigodetalle_venta;
         this.producto = producto;
         this.facturaventa = facturaventa;
