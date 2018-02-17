@@ -21,6 +21,7 @@ public class Kardex {
         this.stock_actual = stock_actual;
         this.cantidad = cantidad;
         this.articulo = articulo;
+        
     }
 
     public int getIdKardex() {

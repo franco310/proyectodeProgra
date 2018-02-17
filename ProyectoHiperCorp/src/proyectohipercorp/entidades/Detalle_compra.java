@@ -15,6 +15,7 @@ public class Detalle_compra {
     private Factura_Compra facturacompra;
     private int cantidad;
     private int preciototal;
+    
 
     public Detalle_compra() {
     }

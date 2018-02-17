@@ -19,6 +19,7 @@ public class FacturaVenta {
     private String nombreProducto;
     private int cantidad;
     private int precio;
+    
 
     public FacturaVenta() {
     }

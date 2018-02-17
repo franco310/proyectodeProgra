@@ -8,6 +8,7 @@ public class Producto {
     private int cantidad;
     private String estado;
     private String observacio;
+    
 
     public Producto() {
     }

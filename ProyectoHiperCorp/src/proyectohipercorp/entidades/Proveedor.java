@@ -9,6 +9,7 @@ public class Proveedor {
       private String apellido;
       private String direccion;
 
+      
     public Proveedor() {
     }
 

@@ -3,7 +3,7 @@ package proyectohipercorp.entidades;
 
 import java.sql.Date;
 
-public class Detalle_venta {
+public class DetalleVenta {
     private int idDetalle_venta;
     private FacturaVenta facturaventa;
     private Producto producto;
@@ -11,16 +11,17 @@ public class Detalle_venta {
     private Date fecha_anulacion;
     private int monto;
 
-    public Detalle_venta() {
+    public DetalleVenta() {
     }
 
-    public Detalle_venta(int idDetalle_venta, FacturaVenta facturaventa, Producto producto, int cantidad, Date fecha_anulacion, int monto) {
+    public DetalleVenta(int idDetalle_venta, FacturaVenta facturaventa, Producto producto, int cantidad, Date fecha_anulacion, int monto) {
         this.idDetalle_venta = idDetalle_venta;
         this.facturaventa = facturaventa;
         this.producto = producto;
         this.cantidad = cantidad;
         this.fecha_anulacion = fecha_anulacion;
         this.monto = monto;
+        
     }
 
     public int getIdDetalle_venta() {

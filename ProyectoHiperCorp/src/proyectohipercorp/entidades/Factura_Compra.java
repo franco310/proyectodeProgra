@@ -19,6 +19,7 @@ public class Factura_Compra {
 
     public Factura_Compra() {
     }
+    
 
     public Factura_Compra(int idFacturacompra, Date fecha, Proveedor proveedor) {
         this.idFacturacompra = idFacturacompra;
