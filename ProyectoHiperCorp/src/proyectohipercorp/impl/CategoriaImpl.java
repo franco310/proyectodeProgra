@@ -1,26 +1,32 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package proyectohipercorp.impl;
-import proyectohipercorp.accesodatos.Conexion;
-import proyectohipercorp.accesodatos.Parametro;
-import proyectohipercorp.dao.IArticulo;
-import proyectohipercorp.entidades.Articulo;
+
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-public class ArticuloImpl implements IArticulo {
+import proyectohipercorp.accesodatos.Conexion;
+import proyectohipercorp.accesodatos.Parametro;
+import proyectohipercorp.dao.ICategoria;
+import proyectohipercorp.entidades.Categoria;
+
+
+public class CategoriaImpl  implements ICategoria{
     
-    @Override
-    public int insertar(Articulo articulo) throws Exception {
+     @Override
+    public int insertar(Categoria categoria) throws Exception {
         int numFilasAfectadas = 0;
-        String sql = "insert into articulo  values "
+        String sql = "insert into categoria  values "
                 + "(?,?,?,?,?)";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, articulo.getIdArticulo()));
-        lstPar.add(new Parametro(2, articulo.getNombre()));
-        lstPar.add(new Parametro(3, articulo.getCantidad()));
-        lstPar.add(new Parametro(4, articulo.getEstado()));
-        lstPar.add(new Parametro(5, articulo.getObservacio()));
-        
-        
+        lstPar.add(new Parametro(1, categoria.getIdcategoria()));
+        lstPar.add(new Parametro(2, categoria.getNombre()));
+        lstPar.add(new Parametro(3, categoria.getNombre()));
+        lstPar.add(new Parametro(4, categoria.getDescripcion()));
+     
         
         Conexion con = null;
         try {
@@ -38,20 +44,17 @@ public class ArticuloImpl implements IArticulo {
     }
 
     @Override
-    public int modificar(Articulo articulo) throws Exception {
+    public int modificar(Categoria categoria) throws Exception {
         int numFilasAfectadas = 0;
-        String sql = "UPDATE articulo"
+        String sql = "UPDATE categoria"
                 + "   SET idArticulo=?, nombre=?, cantidad=?, estado=?, "
                 + "Observacio=? where codigo=?";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, articulo.getIdArticulo()));
-        lstPar.add(new Parametro(2, articulo.getNombre()));
-        lstPar.add(new Parametro(3, articulo.getCantidad()));
-        lstPar.add(new Parametro(4, articulo.getEstado()));
-        lstPar.add(new Parametro(5, articulo.getObservacio()));
+        lstPar.add(new Parametro(1, categoria.getIdcategoria()));
+        lstPar.add(new Parametro(2, categoria.getNombre()));
+        lstPar.add(new Parametro(3, categoria.getNombre()));
+        lstPar.add(new Parametro(4, categoria.getDescripcion()));
          
-        
-              
         Conexion con = null;
         try {
             con = new Conexion();
@@ -68,11 +71,11 @@ public class ArticuloImpl implements IArticulo {
     }
 
     @Override
-    public int eliminar(Articulo articulo) throws Exception {
+    public int eliminar(Categoria categoria) throws Exception {
         int numFilasAfectadas = 0;
-         String sql = "DELETE FROM articulo  where codigo=?";
+         String sql = "DELETE FROM categoria  where codigo=?";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, articulo.getIdArticulo()));       
+        lstPar.add(new Parametro(1, categoria.getIdcategoria()));       
         Conexion con = null;
         try {
             con = new Conexion();
@@ -89,26 +92,23 @@ public class ArticuloImpl implements IArticulo {
     }
 
     @Override
-    public Articulo obtener(int idArticulo) throws Exception {
-        Articulo articulo = null;
-        String sql = "SELECT idArticulo,nombre , cantidad, estado, "
-                + "observacio FROM articulo where codigo=?";
+    public Categoria obtener(int IdCategoria) throws Exception {
+        Categoria categoria = null;
+        String sql = "SELECT idCategoria,nombre , cantidad, estado, "
+                + "observacio FROM categoria where codigo=?";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, idArticulo));
+        lstPar.add(new Parametro(1, IdCategoria));
         Conexion con = null;
         try {
             con = new Conexion();
             con.conectar();
             ResultSet rst = con.ejecutaQuery(sql, lstPar);
             while (rst.next()) {
-                articulo = new Articulo();
-                articulo.setIdArticulo(rst.getInt(1));
-                articulo.setNombre(rst.getString(2));
-                articulo.setCantidad(rst.getInt(3));
-                articulo.setEstado(rst.getString(4));
-                articulo.setObservacio(rst.getString(5));
+                categoria = new Categoria();
+                categoria.setIdcategoria(rst.getInt(1));
+                categoria.setNombre(rst.getString(2));
+                categoria.setDescripcion(rst.getString(3));
                  
-                
             }
         } catch (Exception e) {
             throw e;
@@ -116,27 +116,25 @@ public class ArticuloImpl implements IArticulo {
             if(con!=null)
             con.desconectar();
         }
-        return articulo;
+        return categoria;
     }
 
     @Override
-    public List<Articulo> obtener() throws Exception {
-        List<Articulo> lista = new ArrayList<>();
-         String sql = "SELECT idArticulo, nombre, cantidad, estado, "
-                 + "observacio FROM articulo";        
+    public List<Categoria> obtener() throws Exception {
+        List<Categoria> lista = new ArrayList<>();
+         String sql = "SELECT idArticulo, nombre,descripcion "
+                 + " FROM categoria";        
         Conexion con = null;
         try {
             con = new Conexion();
             con.conectar();
             ResultSet rst = con.ejecutaQuery(sql, null);
-            Articulo articulo=null;
+            Categoria categoria=null;
             while (rst.next()) {
-                articulo = new Articulo();
-                articulo.setIdArticulo(rst.getInt(1));
-                articulo.setNombre(rst.getString(2));
-                articulo.setCantidad(rst.getInt(3));
-                articulo.setEstado(rst.getString(4));
-                articulo.setObservacio(rst.getString(5));
+                categoria = new Categoria();
+                categoria.setIdcategoria(rst.getInt(1));
+                categoria.setNombre(rst.getString(2));
+                categoria.setDescripcion(rst.getString(3));
                
             }
         } catch (Exception e) {
@@ -147,5 +145,4 @@ public class ArticuloImpl implements IArticulo {
         }
         return lista;
     }
-    
 }
