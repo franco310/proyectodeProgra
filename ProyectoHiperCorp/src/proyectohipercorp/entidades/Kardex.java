@@ -8,19 +8,19 @@ public class Kardex {
     private int  stok_anterior;
     private int  stock_actual;
     private int  cantidad;
-    private Producto articulo;
+    private Producto producto;
 
     public Kardex() {
     }
 
-    public Kardex(int idKardex, int precio_compra, int precio_venta, int stok_anterior, int stock_actual, int cantidad, Producto articulo) {
+    public Kardex(int idKardex, int precio_compra, int precio_venta, int stok_anterior, int stock_actual, int cantidad, Producto producto) {
         this.idKardex = idKardex;
         this.precio_compra = precio_compra;
         this.precio_venta = precio_venta;
         this.stok_anterior = stok_anterior;
         this.stock_actual = stock_actual;
         this.cantidad = cantidad;
-        this.articulo = articulo;
+        this.producto = producto;
         
     }
 
@@ -73,11 +73,11 @@ public class Kardex {
     }
 
     public Producto getArticulo() {
-        return articulo;
+        return producto;
     }
 
-    public void setArticulo(Producto articulo) {
-        this.articulo = articulo;
+    public void setArticulo(Producto producto) {
+        this.producto = producto;
     }
    
 }
