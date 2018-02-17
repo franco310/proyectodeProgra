@@ -4,41 +4,29 @@ package proyectohipercorp.entidades;
 import java.sql.Date;
 
 public class DetalleVenta {
-    private int idDetalle_venta;
+    private int idCodigodetalle_venta;
+    private  Producto producto;
     private FacturaVenta facturaventa;
-    private Producto producto;
-    private int  cantidad;   
-    private Date fecha_anulacion;
-    private int monto;
+    private int precio;
+    private int preciototal;
 
     public DetalleVenta() {
     }
 
-    public DetalleVenta(int idDetalle_venta, FacturaVenta facturaventa, Producto producto, int cantidad, Date fecha_anulacion, int monto) {
-        this.idDetalle_venta = idDetalle_venta;
-        this.facturaventa = facturaventa;
+    public DetalleVenta(int idCodigodetalle_venta, Producto producto, FacturaVenta facturaventa, int precio, int preciototal) {
+        this.idCodigodetalle_venta = idCodigodetalle_venta;
         this.producto = producto;
-        this.cantidad = cantidad;
-        this.fecha_anulacion = fecha_anulacion;
-        this.monto = monto;
-        
-    }
-
-    public int getIdDetalle_venta() {
-        return idDetalle_venta;
-        
-    }
-
-    public void setIdDetalle_venta(int idDetalle_venta) {
-        this.idDetalle_venta = idDetalle_venta;
-    }
-
-    public FacturaVenta getFacturaventa() {
-        return facturaventa;
-    }
-
-    public void setFacturaventa(FacturaVenta facturaventa) {
         this.facturaventa = facturaventa;
+        this.precio = precio;
+        this.preciototal = preciototal;
+    }
+
+    public int getIdCodigodetalle_venta() {
+        return idCodigodetalle_venta;
+    }
+
+    public void setIdCodigodetalle_venta(int idCodigodetalle_venta) {
+        this.idCodigodetalle_venta = idCodigodetalle_venta;
     }
 
     public Producto getProducto() {
@@ -49,28 +37,29 @@ public class DetalleVenta {
         this.producto = producto;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public FacturaVenta getFacturaventa() {
+        return facturaventa;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void setFacturaventa(FacturaVenta facturaventa) {
+        this.facturaventa = facturaventa;
     }
 
-    public Date getFecha_anulacion() {
-        return fecha_anulacion;
+    public int getPrecio() {
+        return precio;
     }
 
-    public void setFecha_anulacion(Date fecha_anulacion) {
-        this.fecha_anulacion = fecha_anulacion;
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
 
-    public int getMonto() {
-        return monto;
+    public int getPreciototal() {
+        return preciototal;
     }
 
-    public void setMonto(int monto) {
-        this.monto = monto;
+    public void setPreciototal(int preciototal) {
+        this.preciototal = preciototal;
     }
-
+    
+    
 }
