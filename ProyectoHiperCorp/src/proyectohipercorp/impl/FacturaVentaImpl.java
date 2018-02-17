@@ -26,7 +26,7 @@ public class FacturaVentaImpl implements IFacturaVenta{
         lstPar.add(new Parametro(3, factura.getNombreCliente()));
         lstPar.add(new Parametro(4, factura.getNombreProducto()));
         lstPar.add(new Parametro(5, factura.getCantidad()));
-        lstPar.add(new Parametro(5, factura.getPrecio()));
+        lstPar.add(new Parametro(5, factura.getPreciototal()));
          
         Conexion con = null;
         try {
@@ -56,7 +56,7 @@ public class FacturaVentaImpl implements IFacturaVenta{
         lstPar.add(new Parametro(3, factura.getNombreCliente()));
         lstPar.add(new Parametro(4, factura.getNombreProducto()));
         lstPar.add(new Parametro(5, factura.getCantidad()));
-        lstPar.add(new Parametro(5, factura.getPrecio()));
+        lstPar.add(new Parametro(5, factura.getPreciototal()));
         Conexion con = null;
         try {
             con = new Conexion();
@@ -112,7 +112,7 @@ public class FacturaVentaImpl implements IFacturaVenta{
                 factura.setNombreCliente(rst.getString(3));
                 factura.setNombreProducto(rst.getString(4));
                 factura.setCantidad(rst.getInt(5)); 
-                factura.setPrecio(rst.getInt(5)); 
+                factura.setPreciototal(rst.getInt(5)); 
                 
             }
         } catch (Exception e) {
@@ -142,7 +142,7 @@ public class FacturaVentaImpl implements IFacturaVenta{
                 factura.setNombreCliente(rst.getString(3));
                 factura.setNombreProducto(rst.getString(4));
                 factura.setCantidad(rst.getInt(5)); 
-                factura.setPrecio(rst.getInt(5)); 
+                factura.setPreciototal(rst.getInt(5)); 
                 
                 lista.add(factura);
             }
