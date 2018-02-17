@@ -1,6 +1,8 @@
 
 package proyectohipercorp.entidades;
 
+import java.sql.Date;
+
 public class Cliente {
     
      private int idCliente;
@@ -8,16 +10,20 @@ public class Cliente {
       private String apellido;
       private String direccion;
       private String telefono;
-      
+      private String email;
+      private Date fecha_Nace;
+
     public Cliente() {
     }
 
-    public Cliente(int idCliente, String nombre, String apellido, String direccion, String telefono) {
+    public Cliente(int idCliente, String nombre, String apellido, String direccion, String telefono, String email, Date fecha_Nace) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
         this.telefono = telefono;
+        this.email = email;
+        this.fecha_Nace = fecha_Nace;
     }
 
     public int getIdCliente() {
@@ -60,10 +66,19 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    @Override
-    public String toString() {
-        return nombre; 
+    public String getEmail() {
+        return email;
     }
-       
-    
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getFecha_Nace() {
+        return fecha_Nace;
+    }
+
+    public void setFecha_Nace(Date fecha_Nace) {
+        this.fecha_Nace = fecha_Nace;
+    }
 }

@@ -5,26 +5,17 @@ public class Producto {
     private int idProducto;
     private Categoria categoria;
     private String nombre;
-    private int cantidad;
-    private String estado;
-    private String observacio;
-    
+    private int precio;
+   
 
     public Producto() {
     }
 
-    public Producto(int idProducto, Categoria categoria, String nombre, int cantidad, String estado, String observacio) {
+    public Producto(int idProducto, Categoria categoria, String nombre, int precio) {
         this.idProducto = idProducto;
         this.categoria = categoria;
         this.nombre = nombre;
-        this.cantidad = cantidad;
-        this.estado = estado;
-        this.observacio = observacio;
-    }
-
-   @Override
-    public String toString() {
-        return nombre; 
+        this.precio = precio;
     }
 
     public int getIdProducto() {
@@ -51,27 +42,12 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public int getPrecio() {
+        return precio;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
 
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public String getObservacio() {
-        return observacio;
-    }
-
-    public void setObservacio(String observacio) {
-        this.observacio = observacio;
-    }
 }

@@ -1,27 +1,27 @@
 
 package proyectohipercorp.entidades;
 
+import java.sql.Date;
+
 public class Kardex {
     private int idKardex;
-    private int precio_compra ;
-    private int  precio_venta;
-    private int  stok_anterior;
-    private int  stock_actual;
-    private int  cantidad;
+    
     private Producto producto;
+    private Date fechaEmision;
+    private Date tipotransaccion;
+    private int existencias;
+    private int valortotal;
 
     public Kardex() {
     }
 
-    public Kardex(int idKardex, int precio_compra, int precio_venta, int stok_anterior, int stock_actual, int cantidad, Producto producto) {
+    public Kardex(int idKardex, Producto producto, Date fechaEmision, Date tipotransaccion, int existencias, int valortotal) {
         this.idKardex = idKardex;
-        this.precio_compra = precio_compra;
-        this.precio_venta = precio_venta;
-        this.stok_anterior = stok_anterior;
-        this.stock_actual = stock_actual;
-        this.cantidad = cantidad;
         this.producto = producto;
-        
+        this.fechaEmision = fechaEmision;
+        this.tipotransaccion = tipotransaccion;
+        this.existencias = existencias;
+        this.valortotal = valortotal;
     }
 
     public int getIdKardex() {
@@ -32,52 +32,44 @@ public class Kardex {
         this.idKardex = idKardex;
     }
 
-    public int getPrecio_compra() {
-        return precio_compra;
-    }
-
-    public void setPrecio_compra(int precio_compra) {
-        this.precio_compra = precio_compra;
-    }
-
-    public int getPrecio_venta() {
-        return precio_venta;
-    }
-
-    public void setPrecio_venta(int precio_venta) {
-        this.precio_venta = precio_venta;
-    }
-
-    public int getStok_anterior() {
-        return stok_anterior;
-    }
-
-    public void setStok_anterior(int stok_anterior) {
-        this.stok_anterior = stok_anterior;
-    }
-
-    public int getStock_actual() {
-        return stock_actual;
-    }
-
-    public void setStock_actual(int stock_actual) {
-        this.stock_actual = stock_actual;
-    }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public Producto getArticulo() {
+    public Producto getProducto() {
         return producto;
     }
 
-    public void setArticulo(Producto producto) {
+    public void setProducto(Producto producto) {
         this.producto = producto;
     }
-   
+
+    public Date getFechaEmision() {
+        return fechaEmision;
+    }
+
+    public void setFechaEmision(Date fechaEmision) {
+        this.fechaEmision = fechaEmision;
+    }
+
+    public Date getTipotransaccion() {
+        return tipotransaccion;
+    }
+
+    public void setTipotransaccion(Date tipotransaccion) {
+        this.tipotransaccion = tipotransaccion;
+    }
+
+    public int getExistencias() {
+        return existencias;
+    }
+
+    public void setExistencias(int existencias) {
+        this.existencias = existencias;
+    }
+
+    public int getValortotal() {
+        return valortotal;
+    }
+
+    public void setValortotal(int valortotal) {
+        this.valortotal = valortotal;
+    }
+  
 }

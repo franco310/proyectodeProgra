@@ -18,19 +18,18 @@ public class FacturaVenta {
     private String nombreCliente;
     private String nombreProducto;
     private int cantidad;
-    private int precio;
-    
+    private int preciototal;
 
     public FacturaVenta() {
     }
 
-    public FacturaVenta(int idFactura, Date fecha, String nombreCliente, String nombreProducto, int cantidad, int precio) {
+    public FacturaVenta(int idFactura, Date fecha, String nombreCliente, String nombreProducto, int cantidad, int preciototal) {
         this.idFactura = idFactura;
         this.fecha = fecha;
         this.nombreCliente = nombreCliente;
         this.nombreProducto = nombreProducto;
         this.cantidad = cantidad;
-        this.precio = precio;
+        this.preciototal = preciototal;
     }
 
     public int getIdFactura() {
@@ -73,12 +72,13 @@ public class FacturaVenta {
         this.cantidad = cantidad;
     }
 
-    public int getPrecio() {
-        return precio;
+    public int getPreciototal() {
+        return preciototal;
     }
 
-    public void setPrecio(int precio) {
-        this.precio = precio;
+    public void setPreciototal(int preciototal) {
+        this.preciototal = preciototal;
     }
+     
 
 }
