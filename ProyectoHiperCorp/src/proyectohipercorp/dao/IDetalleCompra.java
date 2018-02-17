@@ -3,9 +3,9 @@ import proyectohipercorp.entidades.*;
 import java.util.*;
 
 public interface IDetalleCompra {
-    public int insertar(DetalleCompra detallecompra) throws Exception;
-    public int modificar(DetalleCompra detallecompra) throws Exception;
-    public int eliminar(DetalleCompra detallecompra) throws Exception;
-    public DetalleCompra obtener(int codigoDetalleCompra) throws Exception;
-    public List<DetalleCompra> obtener() throws Exception;    
+    public int insertar(Detalle_compra detallecompra) throws Exception;
+    public int modificar(Detalle_compra detallecompra) throws Exception;
+    public int eliminar(Detalle_compra detallecompra) throws Exception;
+    public Detalle_compra obtener(int codigoDetalleCompra) throws Exception;
+    public List<Detalle_compra> obtener() throws Exception;    
 }
