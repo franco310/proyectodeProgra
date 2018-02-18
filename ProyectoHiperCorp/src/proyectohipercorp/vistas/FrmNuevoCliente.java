@@ -11,18 +11,31 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class FrmNuevoCliente extends JInternalFrame {
+    /*
+         private int idCliente;
+      private String nombre;
+      private String apellido;
+      private String direccion;
+      private String telefono;
+      private String email;
+      private Date fecha_Nace;
+    */
     JLabel lblTitulo0;
     JLabel lblidCliente;
     JLabel lblnombre;
     JLabel lblapellido;
     JLabel lbldireccion;
     JLabel lbltelefono;
+    JLabel lblemail;
+    JLabel lblFecha;
     
     JTextField txtidCliente;
     JTextField txtnombre;
     JTextField txtapellido;
     JTextField txtdireccion;
     JTextField txttelefono;
+    JTextField txtemail;
+    JTextField txtfecha;
     
     JButton btnLimpiar;
     JButton btnAceptar;
@@ -45,13 +58,17 @@ public class FrmNuevoCliente extends JInternalFrame {
         lblapellido= new JLabel("Apelldio:");
         lbldireccion= new JLabel("Direccion:");
         lbltelefono= new JLabel("Telefono:");
-        
+       lblemail= new JLabel("Email:");
+        lblFecha= new JLabel("Fecha de nacimiento:"); 
 
         txtidCliente = new JTextField(2);
         txtnombre= new JTextField(2);
         txtapellido= new JTextField(2);
         txtdireccion= new JTextField(2);
         txttelefono= new JTextField(2);
+        txtemail= new JTextField(2);
+        txtfecha= new JTextField(2);
+        
         
         btnLimpiar= new JButton("Limpiar");
         btnAceptar= new JButton("Aceptar");
@@ -66,7 +83,10 @@ public class FrmNuevoCliente extends JInternalFrame {
         pnlCentral.add(txtdireccion);
         pnlCentral.add(lbltelefono);
         pnlCentral.add(txttelefono);
-               
+        pnlCentral.add(lblemail);
+        pnlCentral.add(txtemail);
+        pnlCentral.add(lblFecha);
+        pnlCentral.add(txtfecha);       
         btnAceptar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -97,6 +117,8 @@ public class FrmNuevoCliente extends JInternalFrame {
         cliente.setApellido(txtapellido.getText());
         cliente.setDireccion(txtdireccion.getText());
         cliente.setTelefono(txttelefono.getText());
+       cliente.setDireccion(txtemail.getText());
+        cliente.setTelefono(txtfecha.getText());
         
         
         try {
