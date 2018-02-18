@@ -16,7 +16,13 @@ public class FrmListaProveedor extends JInternalFrame {
     JLabel lblTitulo;
     JTable tabla;
     DefaultTableModel modelo;
-    
+    /*
+    private int idProveedor;
+      private String nombre;
+      private String direccion;
+      private String telefono;
+      private String emai
+    */
      public FrmListaProveedor(){
         this.setSize(800, 600);
         this.setLayout(new BorderLayout());
@@ -30,10 +36,10 @@ public class FrmListaProveedor extends JInternalFrame {
      public void cargarTabla(){
         modelo = new  DefaultTableModel();
         modelo.addColumn("IdProveedor");
-        modelo.addColumn("Ruc");
         modelo.addColumn("Nombre");
         modelo.addColumn("Apellido");
-        modelo.addColumn("Direccion");
+        modelo.addColumn("Telefono");
+        modelo.addColumn("Email");
         
         List<Proveedor> lista = new ArrayList<>();
         try {
@@ -45,8 +51,9 @@ public class FrmListaProveedor extends JInternalFrame {
              JOptionPane.ERROR_MESSAGE);
         }
         for(Proveedor est : lista){
-            modelo.addRow(new Object[] { est.getIdProveedor(), est.getRuc(),
-                est.getNombre(), est.getApellido(),est.getDireccion()});
+            modelo.addRow(new Object[] { est.getIdProveedor(), est.getNombre(),
+                est.getDireccion(), est.getTelefono(),est.getEmail()});
+            
             }
            tabla.setModel(modelo); 
         }
