@@ -13,19 +13,26 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class FrmNuevoProveedor extends JInternalFrame {
+    /*
+    private int idProveedor;
+      private String nombre;
+      private String direccion;
+      private String telefono;
+      private String emai
+    */
     JLabel lblTitulo0;
     JLabel lblidProveedor;
-    JLabel lblruc;
     JLabel lblnombre;
-    JLabel lblapellido;
     JLabel lbldireccion;
+    JLabel lbltelefono;
+    JLabel lblemail;
     
     
     JTextField txtidProveedor;
-    JTextField txtruc;
     JTextField txtnombre;
-    JTextField txtapellido;
     JTextField txtdireccion;
+    JTextField txttelefono;
+    JTextField txtemail;
     
  
     JButton btnLimpiar;
@@ -44,32 +51,32 @@ public class FrmNuevoProveedor extends JInternalFrame {
         
         lblTitulo0 = new JLabel("Datos Proveedor");
         
-        lblidProveedor= new JLabel("id Proveedor:");
-        lblruc= new JLabel("Ruc:");
-        lblnombre = new JLabel("Nombre:");
-        lblapellido = new JLabel("Apellido:");
+        lblidProveedor= new JLabel("Id Proveedor:");
+        lblnombre= new JLabel("Nombre:");
         lbldireccion = new JLabel("Direccion:");
+        lbltelefono = new JLabel("Telefono:");
+        lblemail = new JLabel("Email:");
        
 
         txtidProveedor = new JTextField(2);
-        txtruc = new JTextField(2);
         txtnombre = new JTextField(2);
-        txtapellido= new JTextField(2);
-        txtdireccion= new JTextField(2);
+        txtdireccion = new JTextField(2);
+        txttelefono= new JTextField(2);
+        txtemail= new JTextField(2);
         
         btnLimpiar= new JButton("Limpiar");
         btnAceptar= new JButton("Aceptar");
         
         pnlCentral.add(lblidProveedor);
         pnlCentral.add(txtidProveedor);
-        pnlCentral.add(lblruc);
-        pnlCentral.add(txtruc);
         pnlCentral.add(lblnombre);
         pnlCentral.add(txtnombre);
-        pnlCentral.add(lblapellido);
-        pnlCentral.add(txtapellido);
         pnlCentral.add(lbldireccion);
         pnlCentral.add(txtdireccion);
+        pnlCentral.add(lbltelefono);
+        pnlCentral.add(txttelefono);
+        pnlCentral.add(lblemail);
+        pnlCentral.add(txtemail);
               
         btnAceptar.addActionListener(new ActionListener() {
             @Override
@@ -98,10 +105,10 @@ public class FrmNuevoProveedor extends JInternalFrame {
         IProveedor proveedorDao = new ProveedorImpl();
         Proveedor proveedor = new Proveedor();
         proveedor.setIdProveedor(Integer.parseInt(txtidProveedor.getText()));
-        proveedor.setRuc(txtnombre.getText());
         proveedor.setNombre(txtnombre.getText());
-        proveedor.setApellido(txtapellido.getText());
         proveedor.setDireccion(txtdireccion.getText());
+        proveedor.setTelefono(txttelefono.getText());
+        proveedor.setEmail(txtemail.getText());
      
         
         try {
