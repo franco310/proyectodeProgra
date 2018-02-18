@@ -3,9 +3,9 @@ import proyectohipercorp.entidades.*;
 import java.util.*;
 
 public interface IFacturaCompra {
-    public int insertar(Factura_Compra facturacompra) throws Exception;
-    public int modificar(Factura_Compra facturacompra) throws Exception;
-    public int eliminar(Factura_Compra facturacompra) throws Exception;
-    public Factura_Compra obtener(int codigoFacturaCompra) throws Exception;
-    public List<Factura_Compra> obtener() throws Exception;    
+    public int insertar(FacturaCompra facturacompra) throws Exception;
+    public int modificar(FacturaCompra facturacompra) throws Exception;
+    public int eliminar(FacturaCompra facturacompra) throws Exception;
+    public FacturaCompra obtener(int codigoFacturaCompra) throws Exception;
+    public List<FacturaCompra> obtener() throws Exception;    
 }
