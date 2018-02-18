@@ -11,17 +11,16 @@ import java.sql.Date;
  *
  * @author Segovia
  */
-public class Factura_Compra {
+public class FacturaCompra {
     
     private int idFacturacompra;
     private Date fecha;
     private Proveedor proveedor;
 
-    public Factura_Compra() {
+    public FacturaCompra() {
     }
-    
 
-    public Factura_Compra(int idFacturacompra, Date fecha, Proveedor proveedor) {
+    public FacturaCompra(int idFacturacompra, Date fecha, Proveedor proveedor) {
         this.idFacturacompra = idFacturacompra;
         this.fecha = fecha;
         this.proveedor = proveedor;
@@ -50,5 +49,6 @@ public class Factura_Compra {
     public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
     }
-    
+
+   
 }

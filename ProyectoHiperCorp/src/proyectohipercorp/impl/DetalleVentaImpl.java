@@ -27,7 +27,7 @@ public class DetalleVentaImpl implements IDetalleVenta {
         lstPar.add(new Parametro(1, detalle_venta.getIdCodigodetalle_venta()));
         lstPar.add(new Parametro(2, detalle_venta.getProducto().getIdProducto()));
         lstPar.add(new Parametro(2, detalle_venta.getFacturaventa().getIdFactura()));
-        lstPar.add(new Parametro(3, detalle_venta.getPrecio()));
+        lstPar.add(new Parametro(3, detalle_venta.getCantidad()));
         lstPar.add(new Parametro(4, detalle_venta.getPreciototal()));
     
         Conexion con = null;
@@ -51,7 +51,7 @@ public class DetalleVentaImpl implements IDetalleVenta {
        lstPar.add(new Parametro(1, detalle_ventaa.getIdCodigodetalle_venta()));
         lstPar.add(new Parametro(2, detalle_ventaa.getProducto().getIdProducto()));
        lstPar.add(new Parametro(3, detalle_ventaa.getFacturaventa().getIdFactura()));
-        lstPar.add(new Parametro(4, detalle_ventaa.getPrecio()));
+        lstPar.add(new Parametro(4, detalle_ventaa.getCantidad()));
         lstPar.add(new Parametro(5, detalle_ventaa.getPreciototal()));
         Conexion con = null;
         try {
@@ -94,7 +94,7 @@ public class DetalleVentaImpl implements IDetalleVenta {
                 IFacturaVenta facturadao=new FacturaVentaImpl();
                 FacturaVenta factura_venta=facturadao.obtener(rst.getInt(3));
                 detalle_venta.setFacturaventa(factura_venta);
-                detalle_venta.setPrecio(rst.getInt(4));   
+                detalle_venta.setCantidad(rst.getInt(4));   
                 detalle_venta.setPreciototal(rst.getInt(5));
                 
                 
@@ -128,7 +128,7 @@ public class DetalleVentaImpl implements IDetalleVenta {
                 IFacturaVenta facturadao=new FacturaVentaImpl();
                 FacturaVenta factura_venta=facturadao.obtener(rst.getInt(3));
                 detalle_venta.setFacturaventa(factura_venta);
-                detalle_venta.setPrecio(rst.getInt(4));   
+                detalle_venta.setCantidad(rst.getInt(4));   
                 detalle_venta.setPreciototal(rst.getInt(5));
                 lista.add(detalle_venta);
             }
