@@ -13,23 +13,17 @@ import java.sql.Date;
  */
 public class FacturaVenta {
     
-    private int idFactura;
+    private int idFactura;   
+    private Cliente cliente;
     private Date fecha;
-    private String nombreCliente;
-    private String nombreProducto;
-    private int cantidad;
-    private int preciototal;
 
     public FacturaVenta() {
     }
 
-    public FacturaVenta(int idFactura, Date fecha, String nombreCliente, String nombreProducto, int cantidad, int preciototal) {
+    public FacturaVenta(int idFactura, Cliente cliente, Date fecha) {
         this.idFactura = idFactura;
+        this.cliente = cliente;
         this.fecha = fecha;
-        this.nombreCliente = nombreCliente;
-        this.nombreProducto = nombreProducto;
-        this.cantidad = cantidad;
-        this.preciototal = preciototal;
     }
 
     public int getIdFactura() {
@@ -40,6 +34,14 @@ public class FacturaVenta {
         this.idFactura = idFactura;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
     public Date getFecha() {
         return fecha;
     }
@@ -47,38 +49,5 @@ public class FacturaVenta {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-
-    public String getNombreCliente() {
-        return nombreCliente;
-    }
-
-    public void setNombreCliente(String nombreCliente) {
-        this.nombreCliente = nombreCliente;
-    }
-
-    public String getNombreProducto() {
-        return nombreProducto;
-    }
-
-    public void setNombreProducto(String nombreProducto) {
-        this.nombreProducto = nombreProducto;
-    }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public int getPreciototal() {
-        return preciototal;
-    }
-
-    public void setPreciototal(int preciototal) {
-        this.preciototal = preciototal;
-    }
-     
 
 }

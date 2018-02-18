@@ -5,19 +5,19 @@ import java.sql.Date;
 
 public class DetalleVenta {
     private int idCodigodetalle_venta;
-    private  Producto producto;
+    private Producto producto;
     private FacturaVenta facturaventa;
-    private int precio;
+    private int cantidad;
     private int preciototal;
 
     public DetalleVenta() {
     }
 
-    public DetalleVenta(int idCodigodetalle_venta, Producto producto, FacturaVenta facturaventa, int precio, int preciototal) {
+    public DetalleVenta(int idCodigodetalle_venta, Producto producto, FacturaVenta facturaventa, int cantidad, int preciototal) {
         this.idCodigodetalle_venta = idCodigodetalle_venta;
         this.producto = producto;
         this.facturaventa = facturaventa;
-        this.precio = precio;
+        this.cantidad = cantidad;
         this.preciototal = preciototal;
     }
 
@@ -45,12 +45,12 @@ public class DetalleVenta {
         this.facturaventa = facturaventa;
     }
 
-    public int getPrecio() {
-        return precio;
+    public int getCantidad() {
+        return cantidad;
     }
 
-    public void setPrecio(int precio) {
-        this.precio = precio;
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
     public int getPreciototal() {
@@ -60,6 +60,6 @@ public class DetalleVenta {
     public void setPreciototal(int preciototal) {
         this.preciototal = preciototal;
     }
-    
-    
+
+   
 }
