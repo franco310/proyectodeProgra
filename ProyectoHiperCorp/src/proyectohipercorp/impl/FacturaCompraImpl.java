@@ -26,7 +26,7 @@ public class FacturaCompraImpl implements IFacturaCompra{
         String sql = "insert into factura  values "
                 + "(?,?,?)";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, factura.getIdFacturacompra()));
+        lstPar.add(new Parametro(1, factura.getCodigoFacturaCompra()));
         lstPar.add(new Parametro(2, factura.getFecha()));
         lstPar.add(new Parametro(3, factura.getProveedor().getIdProveedor()));
        
@@ -52,7 +52,7 @@ public class FacturaCompraImpl implements IFacturaCompra{
                 + "   SET Idfacturacompra=?,fecha=?,idproveedor=?"
                 + " where Idfacturacompra=?";
         List<Parametro> lstPar = new ArrayList<>();
-       lstPar.add(new Parametro(1, factura.getIdFacturacompra()));
+       lstPar.add(new Parametro(1, factura.getCodigoFacturaCompra()));
         lstPar.add(new Parametro(2, factura.getFecha()));
         lstPar.add(new Parametro(3, factura.getProveedor().getIdProveedor()));
         Conexion con = null;
@@ -75,7 +75,7 @@ public class FacturaCompraImpl implements IFacturaCompra{
         int numFilasAfectadas = 0;
          String sql = "DELETE FROM facturacompra  where Idfacturacompra=?";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, factura.getIdFacturacompra()));       
+        lstPar.add(new Parametro(1, factura.getCodigoFacturaCompra()));       
         Conexion con = null;
         try {
             con = new Conexion();
@@ -105,7 +105,7 @@ public class FacturaCompraImpl implements IFacturaCompra{
             ResultSet rst = con.ejecutaQuery(sql, lstPar);
             while (rst.next()) {
                 factura = new FacturaCompra();
-                factura.setIdFacturacompra(rst.getInt(1));
+                factura.setCodigoFacturaCompra(rst.getInt(1));
                 factura.setFecha(rst.getDate(2));
                 IProveedor proveedordao=new ProveedorImpl();      
                 Proveedor proveedor= proveedordao.obtener(rst.getInt(2));
@@ -135,7 +135,7 @@ public class FacturaCompraImpl implements IFacturaCompra{
             while (rst.next()) {
               
                factura = new FacturaCompra();
-                factura.setIdFacturacompra(rst.getInt(1));
+                factura.setCodigoFacturaCompra(rst.getInt(1));
                 factura.setFecha(rst.getDate(2));
                 IProveedor proveedordao=new ProveedorImpl();      
                 Proveedor proveedor= proveedordao.obtener(rst.getInt(2));
