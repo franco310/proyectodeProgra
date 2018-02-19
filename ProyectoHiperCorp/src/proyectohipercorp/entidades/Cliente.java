@@ -5,9 +5,9 @@ import java.sql.Date;
 
 public class Cliente {
     
-     private int idCliente;
-      private String nombre;
-      private String apellido;
+     private int cedula;
+      private String nombres;
+      private String apellidos;
       private String direccion;
       private String telefono;
       private String email;
@@ -16,38 +16,38 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(int idCliente, String nombre, String apellido, String direccion, String telefono, String email, Date fecha_Nace) {
-        this.idCliente = idCliente;
-        this.nombre = nombre;
-        this.apellido = apellido;
+    public Cliente(int cedula, String nombres, String apellidos, String direccion, String telefono, String email, Date fecha_Nace) {
+        this.cedula = cedula;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
         this.direccion = direccion;
         this.telefono = telefono;
         this.email = email;
         this.fecha_Nace = fecha_Nace;
     }
 
-    public int getIdCliente() {
-        return idCliente;
+    public int getCedula() {
+        return cedula;
     }
 
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public void setCedula(int cedula) {
+        this.cedula = cedula;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public String getDireccion() {
@@ -81,4 +81,9 @@ public class Cliente {
     public void setFecha_Nace(Date fecha_Nace) {
         this.fecha_Nace = fecha_Nace;
     }
+
+  
+    
+
+   
 }

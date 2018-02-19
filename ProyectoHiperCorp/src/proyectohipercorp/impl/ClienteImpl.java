@@ -14,15 +14,15 @@ public class ClienteImpl implements ICliente{
     public int insertar(Cliente cliente) throws Exception{
         int numFilasAfectadas=0;
           String sql = "insert into cliente values"
-                  + "(?,?,?,?,?)";
+                  + "(?,?,?,?,?,?,?)";
           List<Parametro> lstPar = new ArrayList<>();
-          lstPar.add(new Parametro(1, cliente.getIdCliente()));
-          lstPar.add(new Parametro(2, cliente.getNombre()));
-          lstPar.add(new Parametro(3, cliente.getApellido()));
+          lstPar.add(new Parametro(1, cliente.getCedula()));
+          lstPar.add(new Parametro(2, cliente.getNombres()));
+          lstPar.add(new Parametro(3, cliente.getApellidos()));
           lstPar.add(new Parametro(4, cliente.getDireccion()));
           lstPar.add(new Parametro(5, cliente.getTelefono()));
-          lstPar.add(new Parametro(5, cliente.getEmail()));
-          lstPar.add(new Parametro(5, cliente.getFecha_Nace()));
+          lstPar.add(new Parametro(6, cliente.getEmail()));
+          lstPar.add(new Parametro(7, cliente.getFecha_Nace()));
           
         Conexion con = null;
         try{
@@ -41,16 +41,17 @@ public class ClienteImpl implements ICliente{
     public int modificar(Cliente cliente) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "UPDATE cliente"
-                + "   SET IdCliente=?,nombre=?, apellido=?,  direccion=?, telefono=? "
-                + " email=?,fecha_nace=?, where IdCliente=?";
+                + "   SET cedula=?,nombres=?, apellidos=?,  direccion=?, telefono=? "
+                + " email=?,fecha_Nace=?"
+                + " where cedula=?";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, cliente.getIdCliente()));
-          lstPar.add(new Parametro(2, cliente.getNombre()));
-          lstPar.add(new Parametro(3, cliente.getApellido()));
+        lstPar.add(new Parametro(1, cliente.getCedula()));
+          lstPar.add(new Parametro(2, cliente.getNombres()));
+          lstPar.add(new Parametro(3, cliente.getApellidos()));
           lstPar.add(new Parametro(4, cliente.getDireccion()));
           lstPar.add(new Parametro(5, cliente.getTelefono()));  
-          lstPar.add(new Parametro(5, cliente.getEmail()));
-          lstPar.add(new Parametro(5, cliente.getFecha_Nace()));
+          lstPar.add(new Parametro(6, cliente.getEmail()));
+          lstPar.add(new Parametro(7, cliente.getFecha_Nace()));
         Conexion con = null;
         try {
             con = new Conexion();
@@ -70,7 +71,7 @@ public class ClienteImpl implements ICliente{
         int numFilasAfectadas = 0;
          String sql = "DELETE FROM cliente  where IdCliente=?";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, cliente.getIdCliente()));       
+        lstPar.add(new Parametro(1, cliente.getCedula()));       
         Conexion con = null;
         try {
             con = new Conexion();
@@ -87,12 +88,13 @@ public class ClienteImpl implements ICliente{
     }
 
     @Override
-    public Cliente obtener(int idCliente) throws Exception {
+    public Cliente obtener(int cedula) throws Exception {
         Cliente cliente = null;
-        String sql = "SELECT IdCliente, nombre , apellido ,direccion,"
-                + " telefono ,email,fecha_nace FROM cliente where IdCliente=?";
+        String sql = "SELECT cedula, nombres , apellidos ,direccion,"
+                + " telefono ,email,"
+                + "fecha_Nace FROM cliente where cedula=?";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, idCliente));
+        lstPar.add(new Parametro(1, cedula));
         Conexion con = null;
         try {
             con = new Conexion();
@@ -100,9 +102,9 @@ public class ClienteImpl implements ICliente{
             ResultSet rst = con.ejecutaQuery(sql, lstPar);
             while (rst.next()) {
                 cliente = new Cliente();
-                cliente.setIdCliente(rst.getInt(1));
-                cliente.setNombre(rst.getString(2));
-                cliente.setApellido(rst.getString(3));
+                cliente.setCedula(rst.getInt(1));
+                cliente.setNombres(rst.getString(2));
+                cliente.setApellidos(rst.getString(3));
                 cliente.setDireccion(rst.getString(4));                
                 cliente.setTelefono(rst.getString(5)); 
                 cliente.setEmail(rst.getString(6)); 
@@ -120,7 +122,7 @@ public class ClienteImpl implements ICliente{
     @Override
     public List<Cliente> obtener() throws Exception {
         List<Cliente> lista = new ArrayList<>();
-         String sql = "SELECT IdCliente, nombre , apellido, direccion,"
+         String sql = "SELECT cedula, nombres , apellidos, direccion,"
                  + " telefono,email,fecha_nace  FROM cliente ";       
         Conexion con = null;
         try {
@@ -130,9 +132,9 @@ public class ClienteImpl implements ICliente{
             Cliente cliente=null;
             while (rst.next()) {
                 cliente = new Cliente();
-                cliente.setIdCliente(rst.getInt(1));
-                cliente.setNombre(rst.getString(2));
-                cliente.setApellido(rst.getString(3));
+                cliente.setCedula(rst.getInt(1));
+                cliente.setNombres(rst.getString(2));
+                cliente.setApellidos(rst.getString(3));
                 cliente.setDireccion(rst.getString(4));                
                 cliente.setTelefono(rst.getString(5));   
                 cliente.setEmail(rst.getString(6)); 

@@ -12,15 +12,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class FrmNuevoCliente extends JInternalFrame {
-    /*
-         private int idCliente;
-      private String nombre;
-      private String apellido;
-      private String direccion;
-      private String telefono;
-      private String email;
-      private Date fecha_Nace;
-    */
+    
     JLabel lblTitulo0;
     JLabel lblidCliente;
     JLabel lblnombre;
@@ -113,9 +105,9 @@ public class FrmNuevoCliente extends JInternalFrame {
     public void btnAceptarActionListener(ActionEvent e){
         ICliente clienteDao = new ClienteImpl();
         Cliente cliente = new Cliente();
-        cliente.setIdCliente(Integer.parseInt(txtidCliente.getText()));
-        cliente.setNombre(txtnombre.getText());
-        cliente.setApellido(txtapellido.getText());
+        cliente.setCedula(Integer.parseInt(txtidCliente.getText()));
+        cliente.setNombres(txtnombre.getText());
+        cliente.setApellidos(txtapellido.getText());
         cliente.setDireccion(txtdireccion.getText());
         cliente.setTelefono(txttelefono.getText());
        cliente.setDireccion(txtemail.getText());

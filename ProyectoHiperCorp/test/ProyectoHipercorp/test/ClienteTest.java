@@ -18,8 +18,7 @@ public class ClienteTest {
     public void pruebageneral() {
         int filasAfectadas = 0;
         ICliente clienteDao = new ClienteImpl();
-       
-        Cliente cliente = new Cliente(20, "Diego", "Curimilma","Ayacucho", "0983851377" );
+        Cliente  cliente = new Cliente("109230293","Diego","Curimilma","Ayacucho", "0983851377","defiee@kdow",new Date());
         try {
             filasAfectadas = clienteDao.insertar(cliente);
         } catch (Exception e) {

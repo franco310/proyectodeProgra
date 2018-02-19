@@ -18,14 +18,14 @@ import proyectohipercorp.entidades.FacturaVenta;
 public class FacturaVentaImpl implements IFacturaVenta{
     
      @Override
-    public int insertar(FacturaVenta factura) throws Exception {
+    public int insertar(FacturaVenta facturaventa) throws Exception {
         int numFilasAfectadas = 0;
-        String sql = "insert into factura  values "
-                + "(?,?,?,?,?,?)";
+        String sql = "insert into FacturaVenta  values "
+                + "(?,?,?)";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, factura.getIdFactura()));
-        lstPar.add(new Parametro(2, factura.getFecha()));
-        lstPar.add(new Parametro(3, factura.getCliente().getIdCliente()));
+        lstPar.add(new Parametro(1, facturaventa.getCodigoFacturaVenta()));
+        lstPar.add(new Parametro(2, facturaventa.getFecha()));
+        lstPar.add(new Parametro(3, facturaventa.getCliente().getCedula()));
       
         Conexion con = null;
         try {
@@ -43,15 +43,15 @@ public class FacturaVentaImpl implements IFacturaVenta{
     }
 
     @Override
-    public int modificar(FacturaVenta factura) throws Exception {
+    public int modificar(FacturaVenta facturaventa) throws Exception {
         int numFilasAfectadas = 0;
-        String sql = "UPDATE factura"
-                + "   SET Idfactura=?, fecha=?, idcliente=?, "
-                + " where Idfactura=?";
+        String sql = "UPDATE FacturaVenta"
+                + "   SET CodigoFacturaVenta=?, fecha=?, cedula=?, "
+                + " where CodigoFacturaVenta=?";
         List<Parametro> lstPar = new ArrayList<>();
-       lstPar.add(new Parametro(1, factura.getIdFactura()));
-        lstPar.add(new Parametro(2,factura.getFecha()));
-       lstPar.add(new Parametro(3, factura.getCliente().getIdCliente()));
+       lstPar.add(new Parametro(1, facturaventa.getCodigoFacturaVenta()));
+        lstPar.add(new Parametro(2,facturaventa.getFecha()));
+       lstPar.add(new Parametro(3, facturaventa.getCliente().getCedula()));
         Conexion con = null;
         try {
             con = new Conexion();
@@ -68,11 +68,11 @@ public class FacturaVentaImpl implements IFacturaVenta{
     }
 
     @Override
-    public int eliminar(FacturaVenta factura) throws Exception {
+    public int eliminar(FacturaVenta facturaventa) throws Exception {
         int numFilasAfectadas = 0;
-         String sql = "DELETE FROM factura  where Idfactura=?";
+         String sql = "DELETE FROM FacturaVenta  where codigoFacturaVenta=?";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, factura.getIdFactura()));       
+        lstPar.add(new Parametro(1, facturaventa.getCodigoFacturaVenta()));       
         Conexion con = null;
         try {
             con = new Conexion();
@@ -89,12 +89,12 @@ public class FacturaVentaImpl implements IFacturaVenta{
     }
 
     @Override
-    public FacturaVenta obtener(int IdProvedor) throws Exception {
+    public FacturaVenta obtener(int codigoFacturaVenta) throws Exception {
         FacturaVenta factura = null;
-        String sql = "SELECT Idfactura,fecha,idcliente  "
-                + "  FROM facturaventa where Idfactura=?";
+        String sql = "SELECT codigoFacturaVenta,fecha,cedula  "
+                + "  FROM FacturaVenta where codigoFacturaVenta=?";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, IdProvedor));
+        lstPar.add(new Parametro(1, codigoFacturaVenta));
         Conexion con = null;
         try {
             con = new Conexion();
@@ -102,7 +102,7 @@ public class FacturaVentaImpl implements IFacturaVenta{
             ResultSet rst = con.ejecutaQuery(sql, lstPar);
             while (rst.next()) {
                 factura = new FacturaVenta();
-                factura.setIdFactura(rst.getInt(1));
+                factura.setCodigoFacturaVenta(rst.getInt(1));
                 factura.setFecha(rst.getDate(2));
                 ICliente clientedao= new ClienteImpl();
                 Cliente cliente =clientedao.obtener(rst.getInt(3));
@@ -120,23 +120,23 @@ public class FacturaVentaImpl implements IFacturaVenta{
     @Override
     public List<FacturaVenta> obtener() throws Exception {
         List<FacturaVenta> lista = new ArrayList<>();
-         String sql = "SELECT Idfactura, fecha,idcliente, "
-                + " precio, FROM factura ";        
+         String sql = "SELECT codigoFacturaVenta, fecha,cedula, "
+                + " precio, FROM FacturaVenta ";        
         Conexion con = null;
         try {
             con = new Conexion();
             con.conectar();
             ResultSet rst = con.ejecutaQuery(sql, null);
-            FacturaVenta factura=null;
+            FacturaVenta facturaventa=null;
             while (rst.next()) {
-                factura = new FacturaVenta();
-                factura.setIdFactura(rst.getInt(1));
-                factura.setFecha(rst.getDate(2));
+                facturaventa = new FacturaVenta();
+                facturaventa.setCodigoFacturaVenta(rst.getInt(1));
+                facturaventa.setFecha(rst.getDate(2));
                 ICliente clientedao= new ClienteImpl();
                 Cliente cliente =clientedao.obtener(rst.getInt(3));
-                factura.setCliente(cliente);
+                facturaventa.setCliente(cliente);
                 
-                lista.add(factura);
+                lista.add(facturaventa);
             }
         } catch (Exception e) {
             throw e;

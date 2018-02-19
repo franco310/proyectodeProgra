@@ -139,7 +139,7 @@ public class FrmNuevoDetalleVenta extends JInternalFrame {
     public void btnAceptarActionListener(ActionEvent e){
         DetalleVenta detalleventa = new DetalleVenta();
         IDetalleVenta detalleventaDao = new DetalleVentaImpl();
-        detalleventa.setIdCodigodetalle_venta(Integer.parseInt(txtidDetalleventa.getText()));
+        detalleventa.setCodigoDetalleVenta(Integer.parseInt(txtidDetalleventa.getText()));
         detalleventa.setProducto((Producto) cmbProducto.getSelectedItem());
         detalleventa.setFacturaventa((FacturaVenta) cmbFacturaVenta.getSelectedItem());
         detalleventa.setCantidad(Integer.parseInt(txtCantidad.getText()));

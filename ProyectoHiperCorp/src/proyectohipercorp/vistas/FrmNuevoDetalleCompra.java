@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package proyectohipercorp.vistas;
 
 import java.awt.BorderLayout;
@@ -27,10 +23,6 @@ import proyectohipercorp.impl.DetalleCompraImpl;
 import proyectohipercorp.impl.FacturaCompraImpl;
 import proyectohipercorp.impl.ProductoImpl;
 
-/**
- *
- * @author Segovia
- */
 public class FrmNuevoDetalleCompra extends JInternalFrame {
     List<Producto> lstProduto;
     JComboBox<Producto> cmbProducto;
@@ -68,32 +60,32 @@ public class FrmNuevoDetalleCompra extends JInternalFrame {
         lblTitulo0 = new JLabel("Detalle-Compra");
         
         lblidDetallecompra= new JLabel("Código:");
-        lblProducto= new JLabel("Producto:");
-        lblFacturacompra= new JLabel("Factura:");
         lblCantidad= new JLabel("Cantidad:");
         lblPreciototal= new JLabel("Precio total:");
+        lblProducto= new JLabel("Producto:");
+        lblFacturacompra= new JLabel("Factura:");
         
         txtidDetallecompra = new JTextField(2);
+        txtCantidad= new JTextField(2);
+        txtPreciototal= new JTextField(2);
         cargarProducto();
         cmbProducto= new JComboBox(lstProduto.toArray());
         cargarFacturaCompra();
         cmbFacturacompra= new JComboBox(lstFacturaCompra.toArray());
-        txtCantidad= new JTextField(2);
-        txtPreciototal= new JTextField(2);
                 
         btnLimpiar= new JButton("Limpiar");
         btnAceptar= new JButton("Aceptar");
         
         pnlCentral.add(lblidDetallecompra);
         pnlCentral.add(txtidDetallecompra);
-        pnlCentral.add(lblProducto);
-        pnlCentral.add(cmbProducto);
-        pnlCentral.add(lblFacturacompra);
-        pnlCentral.add(cmbFacturacompra);
         pnlCentral.add(lblCantidad);
         pnlCentral.add(txtCantidad);
         pnlCentral.add(lblPreciototal);
         pnlCentral.add(txtPreciototal);
+        pnlCentral.add(lblProducto);
+        pnlCentral.add(cmbProducto);
+        pnlCentral.add(lblFacturacompra);
+        pnlCentral.add(cmbFacturacompra);
                 
         btnAceptar.addActionListener(new ActionListener() {
             @Override
@@ -141,10 +133,10 @@ public class FrmNuevoDetalleCompra extends JInternalFrame {
         DetalleCompra detallecompra = new DetalleCompra();
         IDetalleCompra detallecompraDao = new DetalleCompraImpl();
         detallecompra.setIdDetallecompra(Integer.parseInt(txtidDetallecompra.getText()));
-        detallecompra.setProducto((Producto) cmbProducto.getSelectedItem());
-        detallecompra.setFacturacompra((FacturaCompra) cmbFacturacompra.getSelectedItem());
         detallecompra.setCantidad(Integer.parseInt(txtCantidad.getText()));
         detallecompra.setPreciototal(Integer.parseInt(txtPreciototal.getText()));
+        detallecompra.setProducto((Producto) cmbProducto.getSelectedItem());
+        detallecompra.setFacturacompra((FacturaCompra) cmbFacturacompra.getSelectedItem());
             
 
         try {

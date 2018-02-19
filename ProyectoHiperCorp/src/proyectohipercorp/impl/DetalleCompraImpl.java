@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package proyectohipercorp.impl;
 
 import java.sql.ResultSet;
@@ -28,7 +24,7 @@ public class DetalleCompraImpl implements IDetalleCompra{
         String sql = "insert into detalle_compra values(?,?,?,?,?)";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, detalle_compra.getIdDetallecompra()));
-        lstPar.add(new Parametro(2, detalle_compra.getProducto().getIdProducto()));
+        lstPar.add(new Parametro(2, detalle_compra.getProducto().getCodigoProducto()));
         lstPar.add(new Parametro(2, detalle_compra.getFacturacompra().getIdFacturacompra()));
         lstPar.add(new Parametro(3, detalle_compra.getCantidad()));
         lstPar.add(new Parametro(4, detalle_compra.getPreciototal()));
@@ -49,10 +45,10 @@ public class DetalleCompraImpl implements IDetalleCompra{
     @Override
     public int modificar(DetalleCompra detalle_compra) throws Exception {
         int numFilasAfectadas = 0;
-        String sql = "update  detalle_compraa set idCodigodetalle_compra=?,idproducto=?,idfacturacompra=?,cantidad=?,preciototal=? where codigo=?";
+        String sql = "update  DetalleCompraa set codigoDetalleCompra=?,idproducto=?,idfacturacompra=?,cantidad=?,preciototal=? where codigoDetalleCompra=?";
         List<Parametro> lstPar = new ArrayList<>();
       lstPar.add(new Parametro(1, detalle_compra.getIdDetallecompra()));
-        lstPar.add(new Parametro(2, detalle_compra.getProducto().getIdProducto()));
+        lstPar.add(new Parametro(2, detalle_compra.getProducto().getCodigoProducto()));
         lstPar.add(new Parametro(2, detalle_compra.getFacturacompra().getIdFacturacompra()));
         lstPar.add(new Parametro(3, detalle_compra.getCantidad()));
         lstPar.add(new Parametro(4, detalle_compra.getPreciototal()));
@@ -78,7 +74,7 @@ public class DetalleCompraImpl implements IDetalleCompra{
     @Override
     public DetalleCompra obtener(int IdDetallecompra) throws Exception {
         DetalleCompra detalle_compra = null;
-         String sql = "select idcompra, idfacturacompra,cantidad,preciototal from detalle_compraa where idetallecompra=?"; 
+         String sql = "select codigoDetalleCompra, codigoFactCompra,cantidad,preciototal from detalle_compraa where codigoDetalleCompra=?"; 
           List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, IdDetallecompra));
         Conexion con = null;
@@ -111,7 +107,7 @@ public class DetalleCompraImpl implements IDetalleCompra{
     @Override
     public List<DetalleCompra> obtener() throws Exception {
         List<DetalleCompra> lista = new ArrayList<>();
-         String sql = "select codigo, nombre from detalle_compraa";        
+         String sql = "select codigoDetalleCompra, nombre from DetalleCompraa";        
         Conexion con = null;
         try {
             con = new Conexion();

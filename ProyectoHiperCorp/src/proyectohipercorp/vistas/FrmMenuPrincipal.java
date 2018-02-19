@@ -88,6 +88,14 @@ public class FrmMenuPrincipal extends JFrame {
     JMenuItem mniBuscaCategoria;
     JMenuItem mniListaCategoria;
     
+    //DetalleCompra
+    JMenu mnDetalleCompra;
+    JMenuItem mniNuevoDetalleCompra;
+    JMenuItem mniModificaDetalleCompra;
+    JMenuItem mniEliminaDetalleCompra;
+    JMenuItem mniBuscaDetalleCompra;
+    JMenuItem mniListaDetalleCompra;
+    
     JDesktopPane dkpEscritorio;
     
     public FrmMenuPrincipal(){
@@ -238,6 +246,32 @@ public class FrmMenuPrincipal extends JFrame {
         mnCategoria.add(mniBuscaCategoria);
         mnCategoria.add(mniListaCategoria);
         
+        //DetalleCompra
+        mnDetalleCompra = new JMenu("DetalleCompra");
+        mniNuevoDetalleCompra = new JMenuItem("Nuevo");
+        mniNuevoDetalleCompra.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniNuevoDetalleCompraActionPerformed(e);
+            }
+        });
+        mniModificaDetalleCompra = new JMenuItem("Modifica");
+        mniEliminaDetalleCompra = new JMenuItem("Elimina");
+        mniBuscaDetalleCompra = new JMenuItem("Busca");
+        mniListaDetalleCompra = new JMenuItem("Lista");
+        mniListaDetalleCompra.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniListaDetalleCompraActionPerformed(e);
+            }
+        });
+        mnDetalleCompra.add(mniNuevoDetalleCompra);
+        mnDetalleCompra.add(mniModificaDetalleCompra);
+        mnDetalleCompra.add(mniEliminaDetalleCompra);
+        mnDetalleCompra.addSeparator();
+        mnDetalleCompra.add(mniBuscaDetalleCompra);
+        mnDetalleCompra.add(mniListaDetalleCompra);
+        
         
         
         mnbPrincipal.add(mnInicio);
@@ -246,6 +280,8 @@ public class FrmMenuPrincipal extends JFrame {
         mnbPrincipal.add(mnUsuario);
         mnbPrincipal.add(mnProducto);
         mnbPrincipal.add(mnCategoria);
+        mnbPrincipal.add(mnDetalleCompra);
+        
         mnInicio.add(mniLogin);
         mnInicio.add(mniSalir);
         
@@ -258,6 +294,19 @@ public class FrmMenuPrincipal extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); //Para terminar el programa
         
     } //Fin public FrmMenuPrincipal
+    
+     //DetalleCategoria
+     public void mniNuevoDetalleCompraActionPerformed(ActionEvent e){
+        FrmNuevoDetalleCompra frm = new FrmNuevoDetalleCompra();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+       public void mniListaDetalleCompraActionPerformed(ActionEvent e){
+        FrmListaDetalleCompra frm = new FrmListaDetalleCompra();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+    
      //Categoria
      public void mniNuevoCategoriaActionPerformed(ActionEvent e){
         FrmNuevoCategoria frm = new FrmNuevoCategoria();
