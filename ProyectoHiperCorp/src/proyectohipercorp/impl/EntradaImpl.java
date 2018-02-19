@@ -12,19 +12,19 @@ import proyectohipercorp.accesodatos.Conexion;
 import proyectohipercorp.accesodatos.Parametro;
 import proyectohipercorp.dao.ICliente;
 import proyectohipercorp.dao.IUsuario;
-import proyectohipercorp.dao.IEntrada;
-import proyectohipercorp.dao.IEntrada;
-import proyectohipercorp.dao.IFactura;
 import proyectohipercorp.dao.IProveedor;
 import proyectohipercorp.entidades.*;
 import proyectohipercorp.entidades.Usuario;
 import proyectohipercorp.entidades.Entrada;
+import proyectohipercorp.dao.ICategoria;
+import proyectohipercorp.dao.ICategoria;
+import proyectohipercorp.dao.IFacturaCompra;
 
 /**
  *
  * @author Segovia
  */
-public class EntradaImpl implements IEntrada{
+public class EntradaImpl implements ICategoria{
 
      @Override
     public int insertar(Entrada entrada) throws Exception {
@@ -124,7 +124,7 @@ public class EntradaImpl implements IEntrada{
                 IUsuario usuariodao=new UsuarioImpl();
                 Usuario usuario =usuariodao.obtener(rst.getInt(3));
                 entrada.setUsuario(usuario);
-                IFactura facturadao=new FacturaImpl();
+                IFacturaCompra facturadao=new FacturaImpl();
                 Factura factura =facturadao.obtener(rst.getInt(4));
                 entrada.setFactura(factura); 
                 entrada.setFecha_entrada(rst.getDate(5));
@@ -160,7 +160,7 @@ public class EntradaImpl implements IEntrada{
                 IUsuario usuariodao=new UsuarioImpl();
                 Usuario usuario =usuariodao.obtener(rst.getInt(3));
                 entrada.setUsuario(usuario);
-                IFactura facturadao=new FacturaImpl();
+                IFacturaCompra facturadao=new FacturaImpl();
                 Factura factura =facturadao.obtener(rst.getInt(4));
                 entrada.setFactura(factura); 
                 entrada.setFecha_entrada(rst.getDate(5));             

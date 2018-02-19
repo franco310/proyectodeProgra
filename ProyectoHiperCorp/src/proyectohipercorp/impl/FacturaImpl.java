@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 import proyectohipercorp.accesodatos.Conexion;
 import proyectohipercorp.accesodatos.Parametro;
-import proyectohipercorp.dao.IFactura;
 import proyectohipercorp.entidades.Factura;
+import proyectohipercorp.dao.IFacturaCompra;
 
-public class FacturaImpl implements IFactura{
+public class FacturaImpl implements IFacturaCompra{
     
      @Override
     public int insertar(Factura factura) throws Exception {
