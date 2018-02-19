@@ -3,6 +3,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import javax.swing.*;
 import proyectohipercorp.dao.*;
 import proyectohipercorp.impl.*;
@@ -118,7 +119,14 @@ public class FrmNuevoCliente extends JInternalFrame {
         cliente.setDireccion(txtdireccion.getText());
         cliente.setTelefono(txttelefono.getText());
        cliente.setDireccion(txtemail.getText());
-        cliente.setTelefono(txtfecha.getText());
+      DateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                cliente.setFecha_Nace((Date) formatoFecha.parse(txtfecha.getText()));
+                
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this,"Error en la fecha!!",
+                "Error", JOptionPane.ERROR_MESSAGE);
+            };
         
         
         try {
