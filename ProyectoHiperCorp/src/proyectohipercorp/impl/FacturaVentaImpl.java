@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package proyectohipercorp.impl;
 
 import java.sql.ResultSet;
@@ -120,8 +116,8 @@ public class FacturaVentaImpl implements IFacturaVenta{
     @Override
     public List<FacturaVenta> obtener() throws Exception {
         List<FacturaVenta> lista = new ArrayList<>();
-         String sql = "SELECT codigoFacturaVenta, fecha,cedula, "
-                + " precio, FROM FacturaVenta ";        
+         String sql = "SELECT codigoFacturaVenta, fecha,cedula "
+                + "  FROM FacturaVenta ";        
         Conexion con = null;
         try {
             con = new Conexion();
@@ -135,7 +131,6 @@ public class FacturaVentaImpl implements IFacturaVenta{
                 ICliente clientedao= new ClienteImpl();
                 Cliente cliente =clientedao.obtener(rst.getInt(3));
                 facturaventa.setCliente(cliente);
-                
                 lista.add(facturaventa);
             }
         } catch (Exception e) {

@@ -13,25 +13,25 @@ import java.sql.Date;
  */
 public class FacturaCompra {
     
-    private int idFacturacompra;
+    private int codigoFacturaCompra;
     private Date fecha;
     private Proveedor proveedor;
 
     public FacturaCompra() {
     }
 
-    public FacturaCompra(int idFacturacompra, Date fecha, Proveedor proveedor) {
-        this.idFacturacompra = idFacturacompra;
+    public FacturaCompra(int codigoFacturaCompra, Date fecha, Proveedor proveedor) {
+        this.codigoFacturaCompra = codigoFacturaCompra;
         this.fecha = fecha;
         this.proveedor = proveedor;
     }
 
-    public int getIdFacturacompra() {
-        return idFacturacompra;
+    public int getCodigoFacturaCompra() {
+        return codigoFacturaCompra;
     }
 
-    public void setIdFacturacompra(int idFacturacompra) {
-        this.idFacturacompra = idFacturacompra;
+    public void setCodigoFacturaCompra(int codigoFacturaCompra) {
+        this.codigoFacturaCompra = codigoFacturaCompra;
     }
 
     public Date getFecha() {
@@ -50,5 +50,5 @@ public class FacturaCompra {
         this.proveedor = proveedor;
     }
 
-   
+    
 }

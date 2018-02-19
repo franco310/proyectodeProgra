@@ -10,30 +10,29 @@ package proyectohipercorp.entidades;
  * @author Segovia
  */
 public class DetalleCompra {
-    private int idDetallecompra;
+    private int codigoDetalleCompra;
     private Producto producto;
     private FacturaCompra facturacompra;
     private int cantidad;
     private int preciototal;
-    
 
     public DetalleCompra() {
     }
 
-    public DetalleCompra(int idDetallecompra, Producto producto, int cantidad, int preciototal) {
-        this.idDetallecompra = idDetallecompra;
+    public DetalleCompra(int codigoDetalleCompra, Producto producto, FacturaCompra facturacompra, int cantidad, int preciototal) {
+        this.codigoDetalleCompra = codigoDetalleCompra;
         this.producto = producto;
+        this.facturacompra = facturacompra;
         this.cantidad = cantidad;
         this.preciototal = preciototal;
     }
-    
 
-    public int getIdDetallecompra() {
-        return idDetallecompra;
+    public int getCodigoDetalleCompra() {
+        return codigoDetalleCompra;
     }
 
-    public void setIdDetallecompra(int idDetallecompra) {
-        this.idDetallecompra = idDetallecompra;
+    public void setCodigoDetalleCompra(int codigoDetalleCompra) {
+        this.codigoDetalleCompra = codigoDetalleCompra;
     }
 
     public Producto getProducto() {
@@ -67,6 +66,7 @@ public class DetalleCompra {
     public void setPreciototal(int preciototal) {
         this.preciototal = preciototal;
     }
-   
     
+
+  
 }

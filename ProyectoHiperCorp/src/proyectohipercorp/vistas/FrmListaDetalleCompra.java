@@ -39,13 +39,7 @@ public class FrmListaDetalleCompra extends JInternalFrame {
     this.add(jscTabla, BorderLayout.CENTER);
     cargarTabla();
     }
-    /*
-      private int idDetallecompra;
-    private Producto producto;
-    private FacturaCompra facturacompra;
-    private int cantidad;
-    private int preciototal;
-    */
+   
     public void cargarTabla(){
         modelo = new DefaultTableModel();
         modelo.addColumn("Codigo");
@@ -63,8 +57,7 @@ public class FrmListaDetalleCompra extends JInternalFrame {
                     JOptionPane.ERROR_MESSAGE);
         }
       for(DetalleCompra est : lista){
-            modelo.addRow(new Object[] { est.getIdDetallecompra(), est.getProducto(),
-                est.getFacturacompra(),est.getCantidad(),est.getPreciototal()});
+            modelo.addRow(new Object[] { est.getCodigoDetalleCompra(),est.getCantidad(),est.getPreciototal()});
             
             }
            tabla.setModel(modelo); 

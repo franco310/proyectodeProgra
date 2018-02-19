@@ -24,24 +24,22 @@ import proyectohipercorp.impl.FacturaCompraImpl;
 import proyectohipercorp.impl.ProductoImpl;
 
 public class FrmNuevoDetalleCompra extends JInternalFrame {
-    List<Producto> lstProduto;
-    JComboBox<Producto> cmbProducto;
+   List<Producto> lstProducto;
+   JComboBox<Producto> cmbProducto;
     List<FacturaCompra> lstFacturaCompra;
     JComboBox<FacturaCompra> cmbFacturacompra;
  
- 
-    JLabel lblidDetallecompra;
-    JLabel lblProducto;
-    JLabel lblFacturacompra;
+    JLabel lblTitulo0;
+    JLabel lblcodigoDetalleCompra;
     JLabel lblCantidad;
     JLabel lblPreciototal;
-    JLabel lblTitulo0;
+    JLabel lblProducto;
+    JLabel lblFacturacompra;
     
-    JTextField txtidDetallecompra;
-    JTextField txtProducto;
-    JTextField txtFacturacompra;
+    JTextField txtcodigoDetalleCompra;
     JTextField txtCantidad;
     JTextField txtPreciototal;
+    
        
     JButton btnLimpiar;
     JButton btnAceptar;
@@ -59,25 +57,25 @@ public class FrmNuevoDetalleCompra extends JInternalFrame {
         
         lblTitulo0 = new JLabel("Detalle-Compra");
         
-        lblidDetallecompra= new JLabel("Código:");
+        lblcodigoDetalleCompra= new JLabel("Código:");
         lblCantidad= new JLabel("Cantidad:");
         lblPreciototal= new JLabel("Precio total:");
         lblProducto= new JLabel("Producto:");
-        lblFacturacompra= new JLabel("Factura:");
+        lblFacturacompra= new JLabel("FacturaCompra:");
         
-        txtidDetallecompra = new JTextField(2);
+        txtcodigoDetalleCompra = new JTextField(2);
         txtCantidad= new JTextField(2);
         txtPreciototal= new JTextField(2);
-        cargarProducto();
-        cmbProducto= new JComboBox(lstProduto.toArray());
+        cargarProductos();
+        cmbProducto= new JComboBox(lstProducto.toArray());
         cargarFacturaCompra();
         cmbFacturacompra= new JComboBox(lstFacturaCompra.toArray());
                 
         btnLimpiar= new JButton("Limpiar");
         btnAceptar= new JButton("Aceptar");
         
-        pnlCentral.add(lblidDetallecompra);
-        pnlCentral.add(txtidDetallecompra);
+        pnlCentral.add(lblcodigoDetalleCompra);
+        pnlCentral.add(txtcodigoDetalleCompra);
         pnlCentral.add(lblCantidad);
         pnlCentral.add(txtCantidad);
         pnlCentral.add(lblPreciototal);
@@ -109,10 +107,10 @@ public class FrmNuevoDetalleCompra extends JInternalFrame {
         FrmNuevoDetalleCompra frmMenu= new FrmNuevoDetalleCompra();
         frmMenu.setVisible(true);
     } 
-    public void cargarProducto(){
+    public void cargarProductos(){
         IProducto producctoDao = new ProductoImpl();
         try {
-            lstProduto = producctoDao.obtener();
+            lstProducto = producctoDao.obtener();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this,"Error al cargar los Producto!!",
                 "Error"+e.getMessage(), JOptionPane.ERROR_MESSAGE);
@@ -132,7 +130,7 @@ public class FrmNuevoDetalleCompra extends JInternalFrame {
     public void btnAceptarActionListener(ActionEvent e){
         DetalleCompra detallecompra = new DetalleCompra();
         IDetalleCompra detallecompraDao = new DetalleCompraImpl();
-        detallecompra.setIdDetallecompra(Integer.parseInt(txtidDetallecompra.getText()));
+        detallecompra.setCodigoDetalleCompra(Integer.parseInt(txtcodigoDetalleCompra.getText()));
         detallecompra.setCantidad(Integer.parseInt(txtCantidad.getText()));
         detallecompra.setPreciototal(Integer.parseInt(txtPreciototal.getText()));
         detallecompra.setProducto((Producto) cmbProducto.getSelectedItem());

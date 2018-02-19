@@ -342,7 +342,7 @@ public class FrmMenuPrincipal extends JFrame {
     }
     
     
-     //DetalleCategoria
+     //DetalleCompra
      public void mniNuevoDetalleCompraActionPerformed(ActionEvent e){
         FrmNuevoDetalleCompra frm = new FrmNuevoDetalleCompra();
         dkpEscritorio.add(frm);
