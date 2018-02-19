@@ -17,8 +17,8 @@ public class ProductoImpl implements IProducto {
         String sql = "insert into producto  values "
                 + "(?,?,?,?)";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, producto.getIdProducto()));
-        lstPar.add(new Parametro(2, producto.getCategoria().getIdcategoria()));
+        lstPar.add(new Parametro(1, producto.getCodigoProducto()));
+        lstPar.add(new Parametro(2, producto.getCategoria().getCodigoCategoria()));
         lstPar.add(new Parametro(3, producto.getNombre()));
         lstPar.add(new Parametro(4, producto.getPrecio()));
        
@@ -42,11 +42,11 @@ public class ProductoImpl implements IProducto {
     public int modificar(Producto producto) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "UPDATE producto"
-                + "   SET idproducto=?, idcategoria=?, nombre=?, precio=?, "
-                + "where codigo=?";
+                + "   SET codigoProducto=?, codigoCategoria=?, nombre=?, precio=? "
+                + "where codigoProducto=?";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, producto.getIdProducto()));
-        lstPar.add(new Parametro(2, producto.getCategoria().getIdcategoria()));
+        lstPar.add(new Parametro(1, producto.getCodigoProducto()));
+        lstPar.add(new Parametro(2, producto.getCategoria().getCodigoCategoria()));
         lstPar.add(new Parametro(2, producto.getNombre()));
         lstPar.add(new Parametro(4, producto.getPrecio()));
         
@@ -69,9 +69,9 @@ public class ProductoImpl implements IProducto {
     @Override
     public int eliminar(Producto producto) throws Exception {
         int numFilasAfectadas = 0;
-         String sql = "DELETE FROM producto  where codigo=?";
+         String sql = "DELETE FROM producto  where codigoProducto=?";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, producto.getIdProducto()));       
+        lstPar.add(new Parametro(1, producto.getCodigoProducto()));       
         Conexion con = null;
         try {
             con = new Conexion();
@@ -90,8 +90,8 @@ public class ProductoImpl implements IProducto {
     @Override
     public Producto obtener(int IdProducto) throws Exception {
         Producto producto = null;
-        String sql = "SELECT idProducto,nombre , cantidad, estado, "
-                + "observacio FROM producto where codigo=?";
+        String sql = "SELECT codigoProducto, codigoCategoria, nombre, "
+                + "precio FROM producto where codigoProducto=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, IdProducto));
         Conexion con = null;
@@ -101,7 +101,7 @@ public class ProductoImpl implements IProducto {
             ResultSet rst = con.ejecutaQuery(sql, lstPar);
             while (rst.next()) {
                 producto = new Producto();
-                producto.setIdProducto(rst.getInt(1));
+                producto.setCodigoProducto(rst.getInt(1));
                 ICategoria categoriadao =new CategoriaImpl();
                 Categoria  categoria=categoriadao.obtener(rst.getInt(2));
                 producto.setCategoria(categoria);
@@ -123,8 +123,8 @@ public class ProductoImpl implements IProducto {
     @Override
     public List<Producto> obtener() throws Exception {
         List<Producto> lista = new ArrayList<>();
-         String sql = "SELECT idArticulo, nombre, cantidad, estado, "
-                 + "observacio FROM producto";        
+         String sql = "SELECT codigoProducto, codigoCategoria, nombre, "
+                 + "precio FROM producto";        
         Conexion con = null;
         try {
             con = new Conexion();
@@ -133,12 +133,13 @@ public class ProductoImpl implements IProducto {
             Producto producto=null;
             while (rst.next()) {
                 producto = new Producto();
-                producto.setIdProducto(rst.getInt(1));
+                producto.setCodigoProducto(rst.getInt(1));
                 ICategoria categoriadao = new CategoriaImpl();
                 Categoria  categoria=categoriadao.obtener(rst.getInt(2));
                 producto.setCategoria(categoria);
                 producto.setNombre(rst.getString(3));
                 producto.setPrecio(rst.getInt(4));
+                lista.add(producto);
                
             }
         } catch (Exception e) {

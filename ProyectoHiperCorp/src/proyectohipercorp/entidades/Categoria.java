@@ -1,34 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package proyectohipercorp.entidades;
 
-/**
- *
- * @author Segovia
- */
 public class Categoria {
-    private int idcategoria;
+    private int codigoCategoria;
     private String nombre;
     private String descripcion;
 
     public Categoria() {
     }
 
-    public Categoria(int idcategoria, String nombre, String descripcion) {
-        this.idcategoria = idcategoria;
+    public Categoria(int codigoCategoria, String nombre, String descripcion) {
+        this.codigoCategoria = codigoCategoria;
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
 
-    public int getIdcategoria() {
-        return idcategoria;
+    public int getCodigoCategoria() {
+        return codigoCategoria;
     }
 
-    public void setIdcategoria(int idcategoria) {
-        this.idcategoria = idcategoria;
+    public void setCodigoCategoria(int codigoCategoria) {
+        this.codigoCategoria = codigoCategoria;
     }
 
     public String getNombre() {
@@ -46,5 +38,7 @@ public class Categoria {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    
     
 }

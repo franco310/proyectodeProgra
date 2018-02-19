@@ -20,12 +20,11 @@ public class CategoriaImpl  implements ICategoria{
     public int insertar(Categoria categoria) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "insert into categoria  values "
-                + "(?,?,?,?,?)";
+                + "(?,?,?)";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, categoria.getIdcategoria()));
+        lstPar.add(new Parametro(1, categoria.getCodigoCategoria()));
         lstPar.add(new Parametro(2, categoria.getNombre()));
-        lstPar.add(new Parametro(3, categoria.getNombre()));
-        lstPar.add(new Parametro(4, categoria.getDescripcion()));
+        lstPar.add(new Parametro(3, categoria.getDescripcion()));
      
         
         Conexion con = null;
@@ -47,13 +46,12 @@ public class CategoriaImpl  implements ICategoria{
     public int modificar(Categoria categoria) throws Exception {
         int numFilasAfectadas = 0;
         String sql = "UPDATE categoria"
-                + "   SET idArticulo=?, nombre=?, cantidad=?, estado=?, "
-                + "Observacio=? where codigo=?";
+                + "   SET codigoCategoria=?, nombre=?,  "
+                + "descripcion=? where codigoCategoria=?";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, categoria.getIdcategoria()));
+        lstPar.add(new Parametro(1, categoria.getCodigoCategoria()));
         lstPar.add(new Parametro(2, categoria.getNombre()));
-        lstPar.add(new Parametro(3, categoria.getNombre()));
-        lstPar.add(new Parametro(4, categoria.getDescripcion()));
+        lstPar.add(new Parametro(3, categoria.getDescripcion()));
          
         Conexion con = null;
         try {
@@ -73,9 +71,9 @@ public class CategoriaImpl  implements ICategoria{
     @Override
     public int eliminar(Categoria categoria) throws Exception {
         int numFilasAfectadas = 0;
-         String sql = "DELETE FROM categoria  where codigo=?";
+         String sql = "DELETE FROM categoria  where codigoCategoria=?";
         List<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, categoria.getIdcategoria()));       
+        lstPar.add(new Parametro(1, categoria.getCodigoCategoria()));       
         Conexion con = null;
         try {
             con = new Conexion();
@@ -94,8 +92,8 @@ public class CategoriaImpl  implements ICategoria{
     @Override
     public Categoria obtener(int IdCategoria) throws Exception {
         Categoria categoria = null;
-        String sql = "SELECT idCategoria,nombre , cantidad, estado, "
-                + "observacio FROM categoria where codigo=?";
+        String sql = "SELECT codigoCategoria,nombre , "
+                + "decripcion FROM categoria where codigoCategoria=?";
         List<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, IdCategoria));
         Conexion con = null;
@@ -105,7 +103,7 @@ public class CategoriaImpl  implements ICategoria{
             ResultSet rst = con.ejecutaQuery(sql, lstPar);
             while (rst.next()) {
                 categoria = new Categoria();
-                categoria.setIdcategoria(rst.getInt(1));
+                categoria.setCodigoCategoria(rst.getInt(1));
                 categoria.setNombre(rst.getString(2));
                 categoria.setDescripcion(rst.getString(3));
                  
@@ -122,7 +120,7 @@ public class CategoriaImpl  implements ICategoria{
     @Override
     public List<Categoria> obtener() throws Exception {
         List<Categoria> lista = new ArrayList<>();
-         String sql = "SELECT idArticulo, nombre,descripcion "
+         String sql = "SELECT codigoCategoria, nombre,descripcion "
                  + " FROM categoria";        
         Conexion con = null;
         try {
@@ -132,9 +130,10 @@ public class CategoriaImpl  implements ICategoria{
             Categoria categoria=null;
             while (rst.next()) {
                 categoria = new Categoria();
-                categoria.setIdcategoria(rst.getInt(1));
+                categoria.setCodigoCategoria(rst.getInt(1));
                 categoria.setNombre(rst.getString(2));
                 categoria.setDescripcion(rst.getString(3));
+                lista.add(categoria);
                
             }
         } catch (Exception e) {

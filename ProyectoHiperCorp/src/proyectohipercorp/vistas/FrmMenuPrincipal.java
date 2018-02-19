@@ -16,13 +16,13 @@ public class FrmMenuPrincipal extends JFrame {
     JMenuItem mniLogin;
     JMenuItem mniSalir;
     
-    //Articulos
-    JMenu mnArticulos;
-    JMenuItem mniNuevoArticulo;
-    JMenuItem mniModificaArticulo;
-    JMenuItem mniEliminaArticulo;
-    JMenuItem mniBuscaArticulo;
-    JMenuItem mniListaArticulo;
+    //Producto
+    JMenu mnProducto;
+    JMenuItem mniNuevoProducto;
+    JMenuItem mniModificaProducto;
+    JMenuItem mniEliminaProducto;
+    JMenuItem mniBuscaProducto;
+    JMenuItem mniListaProducto;
      
     // Clientes      
     JMenu mnClientes;
@@ -80,13 +80,13 @@ public class FrmMenuPrincipal extends JFrame {
     JMenuItem mniBuscaUsuario;
     JMenuItem mniListaUsuario;
     
-   //Venta
-    JMenu mnVentas;
-    JMenuItem mniNuevoVentas;
-    JMenuItem mniModificaVentas;
-    JMenuItem mniEliminaVentas;
-    JMenuItem mniBuscaVentas;
-    JMenuItem mniListaVentas;
+   //Categoria
+    JMenu mnCategoria;
+    JMenuItem mniNuevoCategoria;
+    JMenuItem mniModificaCategoria;
+    JMenuItem mniEliminaCategoria;
+    JMenuItem mniBuscaCategoria;
+    JMenuItem mniListaCategoria;
     
     JDesktopPane dkpEscritorio;
     
@@ -160,32 +160,6 @@ public class FrmMenuPrincipal extends JFrame {
         mnProveedor.add(mniBuscaProveedor);
         mnProveedor.add(mniListaProveedor);
         
-        //Articulo
-        mnArticulos= new JMenu("Articulos");
-        mniNuevoArticulo = new JMenuItem("Nuevo");
-        mniNuevoArticulo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mniNuevoArticuloActionPerformed(e);
-            }
-        });
-        mniModificaArticulo= new JMenuItem("Modifica");
-        mniEliminaArticulo= new JMenuItem("Elimina");
-        mniBuscaArticulo= new JMenuItem("Busca");
-        mniListaArticulo= new JMenuItem("Lista"); 
-        mniListaArticulo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mniListaArticuloActionPerformed(e);
-            }
-        });
-        mnArticulos.add(mniNuevoArticulo);
-        mnArticulos.add(mniModificaArticulo);
-        mnArticulos.add(mniEliminaArticulo);
-        mnArticulos.addSeparator();
-        mnArticulos.add(mniBuscaArticulo);
-        mnArticulos.add(mniListaArticulo);
-        
         //Usuario
         mnUsuario = new JMenu("Usuarios");
         mniNuevoUsuario = new JMenuItem("Nuevo");
@@ -212,38 +186,66 @@ public class FrmMenuPrincipal extends JFrame {
         mnUsuario.add(mniBuscaUsuario);
         mnUsuario.add(mniListaUsuario);
         
-        //Ventas
-        mnVentas = new JMenu("Ventas");
-        mniNuevoVentas= new JMenuItem("Nuevo");
-        mniNuevoVentas.addActionListener(new ActionListener() {
+        //Producto
+        mnProducto = new JMenu("Producto");
+        mniNuevoProducto = new JMenuItem("Nuevo");
+        mniNuevoProducto.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mniNuevoVentasActionPerformed(e);
+                mniNuevoProductoActionPerformed(e);
             }
         });
-        mniModificaVentas= new JMenuItem("Modifica");
-        mniEliminaVentas= new JMenuItem("Elimina");
-        mniBuscaVentas= new JMenuItem("Busca");
-        mniListaVentas= new JMenuItem("Lista"); 
-        mniListaVentas.addActionListener(new ActionListener() {
+        mniModificaProducto = new JMenuItem("Modifica");
+        mniEliminaProducto = new JMenuItem("Elimina");
+        mniBuscaProducto = new JMenuItem("Busca");
+        mniListaProducto = new JMenuItem("Lista");
+         mniListaProducto.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mniListaVentasActionPerformed(e);
+                mniListaProductoActionPerformed(e);
             }
         });
-        mnVentas.add(mniNuevoVentas);
-        mnVentas.add(mniModificaVentas);
-        mnVentas.add(mniEliminaVentas);
-        mnVentas.addSeparator();
-        mnVentas.add(mniBuscaVentas);
-        mnVentas.add(mniListaVentas);
+        mnProducto.add(mniNuevoProducto);
+        mnProducto.add(mniModificaProducto);
+        mnProducto.add(mniEliminaProducto);
+        mnProducto.addSeparator();
+        mnProducto.add(mniBuscaProducto);
+        mnProducto.add(mniListaProducto);
+        
+        //Categoria
+        mnCategoria = new JMenu("Categoria");
+        mniNuevoCategoria = new JMenuItem("Nuevo");
+        mniNuevoCategoria.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniNuevoCategoriaActionPerformed(e);
+            }
+        });
+        mniModificaCategoria = new JMenuItem("Modifica");
+        mniEliminaCategoria = new JMenuItem("Elimina");
+        mniBuscaCategoria = new JMenuItem("Busca");
+        mniListaCategoria = new JMenuItem("Lista");
+         mniListaCategoria.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniListaCategoriaActionPerformed(e);
+            }
+        });
+        mnCategoria.add(mniNuevoCategoria);
+        mnCategoria.add(mniModificaCategoria);
+        mnCategoria.add(mniEliminaCategoria);
+        mnCategoria.addSeparator();
+        mnCategoria.add(mniBuscaCategoria);
+        mnCategoria.add(mniListaCategoria);
+        
+        
         
         mnbPrincipal.add(mnInicio);
         mnbPrincipal.add(mnClientes);
         mnbPrincipal.add(mnProveedor);
-        mnbPrincipal.add(mnArticulos);
         mnbPrincipal.add(mnUsuario);
-        mnbPrincipal.add(mnVentas);
+        mnbPrincipal.add(mnProducto);
+        mnbPrincipal.add(mnCategoria);
         mnInicio.add(mniLogin);
         mnInicio.add(mniSalir);
         
@@ -256,15 +258,26 @@ public class FrmMenuPrincipal extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); //Para terminar el programa
         
     } //Fin public FrmMenuPrincipal
-    
-    //Ventas
-     public void mniNuevoVentasActionPerformed(ActionEvent e){
-        FrmNuevoVentas frm = new FrmNuevoVentas();
+     //Categoria
+     public void mniNuevoCategoriaActionPerformed(ActionEvent e){
+        FrmNuevoCategoria frm = new FrmNuevoCategoria();
         dkpEscritorio.add(frm);
         frm.setVisible(true);
     }
-       public void mniListaVentasActionPerformed(ActionEvent e){
-        FrmListaVentas frm = new FrmListaVentas();
+       public void mniListaCategoriaActionPerformed(ActionEvent e){
+        FrmListaCategoria frm = new FrmListaCategoria();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+
+   //Producto
+     public void mniNuevoProductoActionPerformed(ActionEvent e){
+        FrmNuevoProducto frm = new FrmNuevoProducto();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+       public void mniListaProductoActionPerformed(ActionEvent e){
+        FrmListaProducto frm = new FrmListaProducto();
         dkpEscritorio.add(frm);
         frm.setVisible(true);
     }
@@ -304,18 +317,7 @@ public class FrmMenuPrincipal extends JFrame {
         dkpEscritorio.add(frm);
         frm.setVisible(true);
     }
-    //Articulo
-    public void mniNuevoArticuloActionPerformed(ActionEvent e){
-        FrmNuevoArticulo frm = new FrmNuevoArticulo();
-        dkpEscritorio.add(frm);
-        frm.setVisible(true);
-    }
-     public void mniListaArticuloActionPerformed(ActionEvent e){
-        FrmListaArticulo frm = new FrmListaArticulo();
-        dkpEscritorio.add(frm);
-        frm.setVisible(true);
-    }
-     
+  
    
      public void mniSalirActionPerformed(ActionEvent e){
         System.exit(0);
@@ -325,7 +327,7 @@ public class FrmMenuPrincipal extends JFrame {
          JFrame.setDefaultLookAndFeelDecorated(true); //que nos permite dejar a Substance la decoracion ( por asi decirlo) 
        SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.RavenGraphiteSkin"); 
         SubstanceLookAndFeel.setCurrentWatermark("org.jvnet.substance.watermark. SubstanceBubblesWatermark");//Ejemplo de aplicacion de un watermark de Substance
-        SubstanceLookAndFeel.setCurrentWatermark( new SubstanceImageWatermark("e:\\hipercorp.jpg"));
+        SubstanceLookAndFeel.setCurrentWatermark( new SubstanceImageWatermark("e:\\fondo.jpg"));
         SubstanceLookAndFeel.setImageWatermarkOpacity(new Float(0.9));//valor aproximado de la opacidad por default de imageWatermark
        // SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.CremeSkin"); // Setencia que aplica el skin Creme de Substance
         FrmMenuPrincipal frm = new FrmMenuPrincipal();

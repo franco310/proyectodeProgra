@@ -102,7 +102,7 @@ public class FrmNuevoCategoria  extends JInternalFrame {
     public void btnAceptarActionListener(ActionEvent e){
         ICategoria categoriaDao = new CategoriaImpl();
         Categoria categoria = new Categoria();
-        categoria.setIdcategoria(Integer.parseInt(txtidcategoria.getText()));
+        categoria.setCodigoCategoria(Integer.parseInt(txtidcategoria.getText()));
         categoria.setNombre(txtnombre.getText());
         categoria.setDescripcion(txtdescripcion.getText());
         
