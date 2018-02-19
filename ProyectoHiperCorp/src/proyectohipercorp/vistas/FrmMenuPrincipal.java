@@ -290,22 +290,22 @@ public class FrmMenuPrincipal extends JFrame {
         
         
          //FacturaCompra
-        mnFacturaVenta = new JMenu("FacturaCompra");
-        mniNuevoFacturaVenta = new JMenuItem("Nuevo");
-        mniNuevoFacturaVenta.addActionListener(new ActionListener() {
+        mnFacturaCompra = new JMenu("FacturaCompra");
+        mniNuevoFacturaCompra = new JMenuItem("Nuevo");
+        mniNuevoFacturaCompra.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mniNuevoFacturaVentaActionPerformed(e);
+                mniNuevoFacturaCompraActionPerformed(e);
             }
         });
-        mniModificaFacturaVenta = new JMenuItem("Modifica");
-        mniEliminaFacturaVenta = new JMenuItem("Elimina");
-        mniBuscaFacturaVenta = new JMenuItem("Busca");
-        mniListaFacturaVenta = new JMenuItem("Lista");
-        mniListaFacturaVenta.addActionListener(new ActionListener() {
+        mniModificaFacturaCompra = new JMenuItem("Modifica");
+        mniEliminaFacturaCompra = new JMenuItem("Elimina");
+        mniBuscaFacturaCompra = new JMenuItem("Busca");
+        mniListaFacturaCompra = new JMenuItem("Lista");
+        mniListaFacturaCompra.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mniListaFacturaVentaActionPerformed(e);
+                mniListaFacturaCompraActionPerformed(e);
             }
         });
         mnFacturaCompra.add(mniNuevoFacturaCompra);
