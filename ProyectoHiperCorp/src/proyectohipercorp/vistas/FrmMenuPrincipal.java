@@ -96,6 +96,14 @@ public class FrmMenuPrincipal extends JFrame {
     JMenuItem mniBuscaDetalleCompra;
     JMenuItem mniListaDetalleCompra;
     
+    //FacturaVenta
+    JMenu mnFacturaVenta;
+    JMenuItem mniNuevoFacturaVenta;
+    JMenuItem mniModificaFacturaVenta;
+    JMenuItem mniEliminaFacturaVenta;
+    JMenuItem mniBuscaFacturaVenta;
+    JMenuItem mniListaFacturaVenta;
+    
     JDesktopPane dkpEscritorio;
     
     public FrmMenuPrincipal(){
@@ -272,6 +280,32 @@ public class FrmMenuPrincipal extends JFrame {
         mnDetalleCompra.add(mniBuscaDetalleCompra);
         mnDetalleCompra.add(mniListaDetalleCompra);
         
+         //FacturaVenta
+        mnFacturaVenta = new JMenu("FacturaVenta");
+        mniNuevoFacturaVenta = new JMenuItem("Nuevo");
+        mniNuevoFacturaVenta.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniNuevoFacturaVentaActionPerformed(e);
+            }
+        });
+        mniModificaFacturaVenta = new JMenuItem("Modifica");
+        mniEliminaFacturaVenta = new JMenuItem("Elimina");
+        mniBuscaFacturaVenta = new JMenuItem("Busca");
+        mniListaFacturaVenta = new JMenuItem("Lista");
+        mniListaFacturaVenta.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mniListaFacturaVentaActionPerformed(e);
+            }
+        });
+        mnFacturaVenta.add(mniNuevoFacturaVenta);
+        mnFacturaVenta.add(mniModificaFacturaVenta);
+        mnFacturaVenta.add(mniEliminaFacturaVenta);
+        mnFacturaVenta.addSeparator();
+        mnFacturaVenta.add(mniBuscaFacturaVenta);
+        mnFacturaVenta.add(mniListaFacturaVenta);
+        
         
         
         mnbPrincipal.add(mnInicio);
@@ -281,6 +315,7 @@ public class FrmMenuPrincipal extends JFrame {
         mnbPrincipal.add(mnProducto);
         mnbPrincipal.add(mnCategoria);
         mnbPrincipal.add(mnDetalleCompra);
+        mnbPrincipal.add(mnFacturaVenta);
         
         mnInicio.add(mniLogin);
         mnInicio.add(mniSalir);
@@ -290,10 +325,22 @@ public class FrmMenuPrincipal extends JFrame {
         this.add(mnbPrincipal, BorderLayout.NORTH);
         this.add(dkpEscritorio, BorderLayout.CENTER);
         this.setExtendedState(MAXIMIZED_BOTH); //Para maximizar
-        this.setBounds(250,250,450,450);
+        this.setBounds(350,350,550,550);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); //Para terminar el programa
         
     } //Fin public FrmMenuPrincipal
+    //FacturaVenta
+     public void mniNuevoFacturaVentaActionPerformed(ActionEvent e){
+        FrmNuevoFacturaVenta frm = new FrmNuevoFacturaVenta();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+       public void mniListaFacturaVentaActionPerformed(ActionEvent e){
+        FrmListaFacturaVenta frm = new FrmListaFacturaVenta();
+        dkpEscritorio.add(frm);
+        frm.setVisible(true);
+    }
+    
     
      //DetalleCategoria
      public void mniNuevoDetalleCompraActionPerformed(ActionEvent e){
