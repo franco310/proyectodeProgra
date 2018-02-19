@@ -56,7 +56,7 @@ public class FrmListaCategoria extends JInternalFrame {
              JOptionPane.ERROR_MESSAGE);
         }
         for(Categoria est : lista){
-            modelo.addRow(new Object[] { est.getIdcategoria(), est.getNombre(),
+            modelo.addRow(new Object[] { est.getCodigoCategoria(), est.getNombre(),
                 est.getDescripcion()});
             
             }
