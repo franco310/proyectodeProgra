@@ -115,7 +115,7 @@ public class FrmNuevoFacturaCompra extends JInternalFrame {
     public void btnAceptarActionListener(ActionEvent e){
         FacturaCompra facturacompra = new FacturaCompra();
         IFacturaCompra FacturacompraDao = new FacturaCompraImpl();
-        facturacompra.setIdFacturacompra(Integer.parseInt(txtidFactura.getText()));
+        facturacompra.setCodigoFacturaCompra(Integer.parseInt(txtidFactura.getText()));
          DateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
             try {
                 facturacompra.setFecha((Date) formatoFecha.parse(txtFecha.getText()));

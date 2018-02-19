@@ -48,7 +48,7 @@ public class FrmListFacturaCompra extends JInternalFrame{
              JOptionPane.ERROR_MESSAGE);
         }
         for(FacturaCompra est : lista){
-            modelo.addRow(new Object[] { est.getIdFacturacompra(), est.getFecha(),
+            modelo.addRow(new Object[] { est.getCodigoFacturaCompra(), est.getFecha(),
                 est.getProveedor()});
             
             }
